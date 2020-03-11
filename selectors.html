@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice CSS Selectors</title>
+    <style>
+    /***Descendant Selector ***************/
+      article h1 {
+          color: red;
+      }
+
+      article > p {
+          color: blue;
+      }
+
+      /**Selecting siblings*/
+    /** Select any paragraph element that comes after the h1 element but share the same parent with h1 **/
+    article h1 ~ p {
+        text-transform: uppercase;
+    }
+    /*** adjacent sibling selector ************************/
+    section h1 + p {
+        color: orange;
+    }
+    section h1 ~ p {
+        font-size: 24px;
+    }
+    </style>
+</head>
+<body>
+    <article>
+      <h1>Sample HTML Selectors</h1>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod esse ducimus architecto laudantium quam unde harum accusamus reprehenderit reiciendis, voluptatibus temporibus dolor. Sequi fugiat cumque quo repudiandae, debitis illo? Cumque?</p>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla sapiente, maiores voluptates at ex temporibus voluptate, veniam non quam facilis fugiat dolorum delectus! Unde optio saepe aperiam natus. Voluptatibus, distinctio?</p>
+    </article>
+    <section>
+        <h1>This is my home page</h1>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fuga iste reiciendis atque recusandae deleniti explicabo expedita corrupti nobis veritatis! Sequi quas aliquid unde! Laboriosam cum quas modi rerum perferendis hic!</p>
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur corporis obcaecati exercitationem eos ex facilis, culpa, repellat facere saepe, a id perferendis animi qui. Maxime culpa enim fugiat quidem sunt?w</p>
+        <div>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit laudantium vel unde a. Quidem earum placeat maiores laboriosam libero! Iste nobis est esse ut alias aperiam facere obcaecati eligendi in.</p>
+        </div>
+    </section>
+</body>
+</html>

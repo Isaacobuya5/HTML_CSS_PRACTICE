@@ -1,0 +1,96 @@
+Working with Lists
+
+Using an Image as a List Item Marker
+-> There may come a time when the default "list-style-type" property values are not
+enough and we want to customize our own list item marker.
+-> Doing so is most commonly accomplished by placing a background image on each <li> elements within a list.
+
+-> The process includes removing any default list-style-type property value and adding a background image and padding to the li element.
+-> "list-style-type" property value of "none" will remove any existing list item markers.
+-> The "background" property will identify a background image along with its position and repeate value if necessary.
+-> Adding "padding" property to the left will provide space to the left of the text for the background image.
+
+Example
+<ul>
+  <li>Orange</li>
+  <li>Green</li>
+  <li>Blue</li>
+</ul>
+
+CSS
+li {
+  background: url("arrow.png") 0 50% no-repeat;
+  list-style-type: none;
+  padding-left: 12px;
+}
+
+
+List Style Position.
+-> By default, list item marker is to the left of the content within the <li> element.
+-> This list style positioning is described as "outside", meaning all content will appear directly to the right, outside of the list item marker.
+-> However, using "list-style-position" property, we can change the default value of "outside" to "inside" or "inherit".
+
+-> The "outside" property value places the list item marker to the left of the <li> element and doesn't allow
+any content to wrap below the list item marker.
+-> The inside property value ( which is rarely seen or used) places the list item marker in line with the first line of the <li> element and allows other content to wrap below it as needed.
+
+Shorthand List Style Property
+-> "list-style" is shorthand use to combine "list-style-type" and "list-style-position".
+
+Example;
+ul {
+  list-style: circle inside;
+}
+ol {
+  list-style: lower-roman;
+}
+
+Horizontally Displaying List
+-> Occassionally, we may want to display list horizontally rather than vertically.
+-> Perharps, we want to divide a list into multiple columns, to build a navigational list or to put a few list items in a single row.
+-> Ways of displaying list as a single line include;
+  * making "display" property value of <li> elements inline or inline-block;
+  * floating them.
+-> Setting the "display property" for the list items to "inline-block" is often the most desirable as it allows us
+to easily add vertical margins and other spacing to the <li> elements whereas inline does not.
+-> When changing the display property value to "inline" or "inline-block", the list item marker be it a bullet, number or other styles is removed.
+
+Example
+<div class="container">
+<ul>
+  <li>Home</li>
+  <li>About</li>
+  <li>Services</li>
+  <li>Blog</li>
+</ul>
+<!--   <div class="clear"></div> -->
+</div>
+
+Example CSS
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  width: 100vw;
+  height: 100vh;
+}
+.container {
+  width: 80%;
+  height: 40vh;
+  background-color: teal;
+  position: relative;
+  margin: 0 auto;
+}
+ul {
+position: absolute;
+right: 0;
+top: 20px;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+
+

@@ -1,0 +1,48 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+  font-size: 0; /* removing the white space */
+  text-align: center; /* grid items usually accept this property */
+}
+
+.grid-item-large,
+.grid-item {
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin: 10px;
+  font-size: 1rem;
+}
+
+.grid-item-large {
+  height: 400px;
+  vertical-align: top;
+}
+
+.green {
+  background-color: green;
+}
+.purple {
+  background-color: purple;
+}
+.teal {
+  background-color: teal;
+}
+.yellow {
+  background-color: yellow;
+}
+.red {
+  background-color: red;
+}
+.white {
+  background-color: white;
+}
+.brown {
+  background-color: brown;
+}
+.lightblue {
+  background-color: lightblue;
+}
+.black {
+  background-color: black;
+}

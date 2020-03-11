@@ -1,0 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+section {
+  display: inline-block;
+  width: 30%;
+  /* margin: 0 1.5%; */
+  background-color: teal;
+}

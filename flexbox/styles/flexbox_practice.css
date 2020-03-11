@@ -1,0 +1,106 @@
+
+.container {
+border: 5px solid #ffcc5c;
+display: flex;
+height: 100%;
+/* items are now aligned from top to bottom i.e. vertically ****/
+/* flex-direction: column; */
+/**** controls content along the main axis *****/
+/***possible values -> flex-start (default), flex-end, space-around,center, space-between and space-evenly ****/
+/* justify-content: flex-end; */
+/**align-items -> allows us to arrange items across the cross-axis ****/
+/*** stretch is the default value for align-items, others can be
+  flex-start, flex-end **/
+  align-items: center;
+}
+
+/* .home {
+    align-self: flex-end;
+}
+.logout {
+    align-self: flex-start;
+} */
+
+.container > div,
+.container2 > div {
+    padding: 10px;
+    text-align: center;
+    font-size: 2em;
+    color: #ffeead;
+    /*** flex is a short hand of flex-grow, flex-shrink and flex-basis *****/
+    /** allocates an equal amount of space to each item within the flex container ***/
+    /*** -> for example for three divs it is equavalent to a width of 33.3333% and for 4 divs it's equivalent to width of 25% ***/
+    /* flex: 1;  */
+}
+
+body {
+    margin: 0;
+}
+
+html, body {
+    box-sizing: border-box;
+    height: 100%;
+    padding: 10px;
+    background-color: #ffeead;
+    /* margin: 10px; */
+}
+
+.container > div:nth-child(1),
+.container2 > div:nth-child(1) {
+    background-color: #96ceb4;
+}
+
+.container > div:nth-child(2),
+.container2 > div:nth-child(2) {
+    background-color: #ff6f69;
+}
+
+.container > div:nth-child(3),
+.container2 > div:nth-child(3) {
+    background-color: #88d8b0;
+}
+
+.container > div:nth-child(4),
+.container2 > div:nth-child(4)
+ {
+    background-color: lightblue;
+}
+
+/* .search {
+    margin-left: auto;
+} */
+
+/* .home {
+    margin-right: auto;
+} */
+
+
+.search {
+    flex: 2;
+    } 
+
+/* .home,
+.profile,
+.logout {
+    flex: 1;
+} */
+
+
+.container2 {
+border: 5px solid #ffcc5c;
+height: 100%;
+margin-top: 20px;
+display: flex;
+align-items: flex-start;
+/* flex-direction: column;
+justify-content: flex-end;
+align-items: flex-end; */
+}
+
+.logout1 {
+   order: -1; 
+}
+
+.home1 {
+    order: 1;
+}

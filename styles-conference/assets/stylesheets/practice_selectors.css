@@ -1,0 +1,269 @@
+div {
+  width: 300px;
+}
+
+/**********Practice Advanced Selectors ****************/
+
+div > ul {
+  /* same as "div ul" */
+  border: 1px solid black;
+  list-style: none;
+}
+
+div ul li {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  border: 1px dashed red;
+  padding: 5px 8px;
+  text-transform: uppercase;
+}
+
+div li a {
+  text-decoration: none;
+  color: green;
+  font-weight: 800;
+}
+
+/***** attribute selector matches the attribute value for a given property */
+div li a[href="login.html"] {
+  color: blue;
+}
+
+/****** attribute value starts with ********************/
+div li a[href^="ab"] {
+  color: orange;
+}
+
+/**** attribute value ends with **************/
+div li a[href$=".html"] {
+  text-decoration: underline;
+}
+
+/***** attribute matches characters ***********/
+div li a[href*="ab"] {
+  background-color: teal;
+}
+
+/**** element with a given property ******/
+div li a[target] {
+  background-color: black;
+  color: white;
+}
+
+/***** attribute spaced selector **********/
+div li a[class~="home"] {
+  background-color: yellow;
+}
+
+/**** attribute hyphen selector ************/
+div li a[lang|="en"] {
+  background-color: purple;
+}
+
+/***** pseudo classes selector ************/
+div li a[href*="ab"]:hover {
+  color: white;
+}
+
+/***** link is clicked *************/
+div li a[href*="ab"]:active {
+  color: black;
+}
+
+/******** link has been made the focus of a page using keyboard tab *******/
+div li a[href*="ab"]:focus {
+  background-color: blue;
+}
+
+/****** check box and radio buttons selector ************/
+
+/****** checkbox is checked **************/
+input[type="checkbox"]:checked {
+  display: none;
+  border: 1px solid black;
+}
+
+/*** select box/radio buttons is selected or not selected ******/
+input[type="checkbox"]:indeterminate {
+  display: block;
+}
+
+/***** input field is disabled ***************/
+input[type="password"]:disabled {
+  background: yellow;
+  opacity: 0.3;
+}
+
+/***** input field is enabled ****************/
+input[type="password"]:enabled {
+  background: blue;
+  opacity: 0.2;
+}
+
+/**** :first-child vs :last-child vs :only-child ******/
+/*** :first-child selects the first child within parent ****/
+
+div ul li:first-child {
+  background: grey;
+}
+
+/*** last-child - element selected if it is the last within the parent ******/
+div ul li:last-child {
+  background: red;
+}
+
+/*** only child - element is selected if it is the only child within the parent ***/
+div ul li:first-child a:only-child {
+  text-decoration: none;
+  padding-left: 10px;
+}
+
+/**** :first-of-type vs :last-of-type vs :only-of-type ****/
+
+/*** :last-of-type - selects the last element of specific type within the parent *****/
+input:last-of-type {
+  border: 1px solid grey;
+  border-radius: 5px;
+  box-shadow: 2px rgb(0, 0, 0, 0.5);
+}
+
+/****:first-of-type - selects the first element of specific  type ****/
+input:first-of-type {
+  margin-left: 20px;
+}
+
+.names ul,
+.fruits ul {
+  margin: 0;
+  padding: 0;
+  display: block;
+  border: 1px solid green;
+  width: 180px;
+  margin-top: 10px;
+  list-style: none;
+  text-align: center;
+}
+
+.names ul li,
+.fruits ul li {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 700;
+}
+
+.fruits ul li:last-of-type {
+  border-bottom: none;
+}
+
+.fruits ul li:nth-child(2n) {
+  background: black;
+  color: white;
+}
+
+/**** select every second list item starting from the last list item towards the top ******/
+.names ul li:nth-last-child(2n + 1) {
+  background: teal;
+}
+
+.article p:nth-of-type(2n) {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  border: 1px solid green;
+}
+
+.article p:nth-last-of-type(2n + 1) {
+  border: 1px dotted red;
+}
+
+/**** target pseudo class ***********/
+section:target {
+    border: 1px solid green;
+    background: blue;
+    text-decoration: none;
+}
+
+/*** styling empty div ****/
+div:empty {
+    width: 100px;
+    height: 100px;
+    background: rgb(0, 0, 0, 0.5);
+}
+
+/*** negation selector ****/
+/** anything not a span is given a color of green ******/
+:not(span) {
+    color: green;
+}
+
+/***********PSEUDO-ELEMENTS ********************/
+.first::first-letter {
+    font-size: 24px;
+    font-weight: 700;
+    color: black;
+}
+
+.second::first-line {
+    text-decoration: underline;
+    font-size: 23px;
+}
+
+/**** selection pseudo class ****/
+.first::selection {
+    color: orange;
+}
+
+.arrow {
+    background: #2db34a;
+    color: #fff;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 12px;
+    position: relative;
+    text-decoration: none;
+}
+
+.arrow:before,
+.arrow:after {
+    content: "";
+    height: 0;
+    position: absolute;
+    width: 0;
+}
+
+.arrow:before {
+    border-bottom: 15px solid #2db34a;
+    border-left: 15px solid transparent;
+    border-top: 15px solid #2db34a;
+    left: -15px;
+}
+
+.arrow:after {
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid #2db34a;
+    border-top: 15px solid transparent;
+    right: -15px;
+}
+
+.arrow:hover {
+    background: #ff7b29;
+  }
+
+  .arrow:hover:before {
+    border-bottom: 15px solid #ff7b29;
+    border-top: 15px solid #ff7b29;
+  }
+
+  .arrow:hover:after {
+    border-left: 15px solid #ff7b29;
+  }
+
+  
+  .login {
+      margin-top: 5px;
+      width: 80px;
+      padding: 15px;
+      border-bottom: 15px solid blue;
+      border-top: 15px solid orange;
+      border-left: 15px solid purple;
+  }

@@ -1,0 +1,121 @@
+Pseudo elements
+-> Pseudo elements allow you create/define elements which are not on the DOM.
+-> They allow you to style specific part of an element's content.
+-> They have no specific element type as far as the document language is concerned because simply,
+they don't exist in the DOM.
+-> They can only be created using CSS.
+-> * Pseudo elements therefore allows you to add extra styling to a website without adding an extra markup.
+
+Example Pseudo elements
+a. ::first-letter formerly :first-letter
+b. ::first-line formerly :first-line
+c. ::before formerly :before
+d. ::after formerly :after.
+
+Initially, pseudo elements were made using the single colon convention i.e. :before,
+but CSS3 introduced a new convention, i.e. *single-colon for "pseudo-classes" like hover and active and double colons for "pseudo-elements".
+
+Before Pseudo-element
+-> Creates a pseudo-element before the first child of the selected element i.e. it creates an element before the content of the selected element.
+-> Pseudo elements have a "content property" which can be used to insert a generated content, image or a string.
+-> They must have a CSS content attribute else the default value of the content is set to none.
+
+After Pseudo-element
+-> The "after" pseudo element is quite similar to the "before", the only difference is its positioning which is after the last child of the selected
+element/ after the content of the selected element. 
+
+The clearfix technique
+-> The clearfix technique is based off using the ":before" and ":after" pseudo-elements on the parent element.
+-> Using these pseudo-elements, we can create hidden elements above and below the parent containing the floats.
+-> The :before pseudo-element is used to prevent the top margin of the child elements from collapsing by creating an anonymous table cell using the "display" table property.
+-> The :after pseudo-element is used to prevent the bottom margin of the child elements from collapsing as well as to clear nested floats.
+
+-> Adding the "*zoom" property to the parent element triggers the "hasLayout" mechanism specifically within Internet Explorer 6 and 7 which determines how elements should interact with and relate to other elements.
+
+Example
+.box-set:before,
+.box-set:after {
+  content: "";
+  display: table;
+}
+.box-set:after {
+  clear: both;
+}
+.box-set {
+  *zoom: 1;
+}
+
+Best Practice
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.group {
+  *zoom: 1;
+}
+
+NOTE;
+-Only one ":before" and one ":after" pseudo elements are allowed per element for the time being.
+-> When trying to use the clearfix techique with other :before and :after pseudo element content, you may not achieve the desired outcome.
+
+Position Property
+-> Ocassionally, you need more control over the position of an element, more than a float can provide in which case the "position" property comes into play.
+ a. Position static
+-> Elements by default have the "position" value of static meaning they don't have nor will they accept any specific box-offset properties.
+-> Furthermore, elements will be psitioned as intended with their default values.
+
+Position Relative
+-> The "relative" value for the "position" is very similar to static value. However,
+it accepts the "box-offset" properties i.e. top,right,bottom and left.
+-> These box offset properties allow the element to be precisely positioned , shifting the element from its default postion in any direction.
+
+-> The box offset properties only work on elements with a relative, absolute or fixed positioning value.
+-> In the event that the "top" and the "bottom" box offset properties are both declared on a relatively positioned element,
+the top properties will take priority.
+-> If both left and right box offset properties are declared on a relatively postioned element,priorty is given in the direction in which the language of the page is written i.e. left offset for English.
+
+Position Absolute
+-> Absolutely positioned elements accept box offset properties, however they are removed from the normal flow of the document.
+-> Upo removing the element from the normal flow, elements are positioned directly in relation to their containing parent whom is relatively or absolutely positioned.
+-> Should a relatively/positioned parent not be present, then the absolutely postioned element will be postioned in relation to the body of the page.
+
+Position Fixed.
+-> Using the positioning value of "fixed" works just like that of absolute; however the positioning is relative to the browser viewport and it does not scroll the width of the page.
+-> i.e., elements will always be present no matter where a user stands on a page.
+
+NOTE: Position fixed does not work with Internet Explorer 6
+
+Fixed Header or Footer
+-> One of the most common use cases of fixed positioning is to build a fixed header or footer anchored to one side of a page.
+-> As the user scrolls, the element stays prevalent always within the viewport for users to interact with.
+
+Example Fixed Footer
+
+<footer>Fixed Footer</footer>
+
+CSS
+body {
+  background: #eaeaed;
+}
+footer {
+  background: #2db34a;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+}
+
+Z-index property
+-> By nature, web pages are often considered to be two dimensional, displaying elements upon an x and y axis.
+-> However, when you begin to position elements, they are occassionally placed on top of one another.
+-> To change the order of how these elements are stacked , i.e. the z-index, the "z-index" property is used.
+
+-> Generally, elements are positioned upon the "z-index" as they appear within the DOM.
+-> Elements coming at the top of the DOM are positioned behind elements coming after them.
+-> Changing this stacking using the z-index property is straight forward.
+-> The elements with the highest z-index value will appear on top regardles of its placement in the DOM.
+-> In order to apply the z-index property to an element, you must first apply a position value of "relative", "absolute" or "fixed".

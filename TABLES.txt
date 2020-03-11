@@ -1,0 +1,116 @@
+Organizing Data with Tables
+
+-> HTML tables were created to provide a straightforward way to mark up structured tabular data and to display
+that data in a form that is easy for users to read and digest.
+-> When HTML was being developed, CSS was not widely supported in browsers, so tables were the primary means by which
+websites were built.
+
+-> They were used for positioning content as well as for building the overal layout of a page.
+-> Fortunately today, tables are used specifically for "organizing data" like they should and CSS
+is free to get on with the jobs of positioning layout and content.
+
+Creating a Table 
+-> Tables are usually made up of data that is contained within columns and rows and HTML supplies different elements for defining and structuring these items.
+-> At a minimum, a table must consist of 
+  * <table>, 
+   * <tr> (table row).
+   * <td> (table data).
+   
+-> For greater structure and additional semantic value, tables may include the;
+  * <th> - table header
+  * etc
+
+Table Header
+-> To designate a heading for a column or row of cells, the table header element, <th> should be used.
+-> The <th> element works just like <td> element in that it creates a cell for data.
+-> * The value to using <th> element over the <td> element is that the "table header" element provides a semantic value by signifying 
+that the data within the cell is a heading while the <td> element only represents a generic piece of data.
+-> Table headers may be used with both "columns" and "rows"; the data within a table determines where the headers are appropriate.
+-> The "scope" attribute indicates with the values of "col","row","colgroup" and "rowgroup" whether a table header applies to a "row" or a "column";
+-> The most commonly used values are "col" and "row".
+
+-> The "col" value indicates that every cell within the column relates directly to that table header.
+-> The "row" value indicates that every cell within the row relates directly to that table header.
+-> Using the <th> element along with the "scope" attribute, tremendeously helps screen readers and assistive technologies make sense of a table.
+
+-> Additionally depending on the browser, table headers may receive some default styling usually bold and centered.
+
+-> The headers attribute
+-> The headers attribute is very similar to the scope attribute.
+-> By default, the scope attribute may only be used on the <th> element.
+-> In the case that a cell, either a <td> or <th> element needs to be associated with a different header,
+the "headers" attribute comes into play.
+-> The value of the "headers" attribute on a <td> or <th> element needs to match the "id" attribute of the
+<th> element that cell pertains to.
+
+Table Structure
+* <caption>
+* <thead>
+* <tbody>
+* <tfoot>
+-> helps organize the data and structure of a table 
+
+Table Caption
+-> The <caption> element provides a caption/ title of a table.
+-> Caption help users identify what the table pertains to and what data they can expect to find within it.
+-> The <caption> element must come immediately after the opening the <table> tag and it is positioned to the top of the table by default.
+
+Example
+<table>
+  <caption>Design and Front-End Development Books</caption>
+  ...
+</table>
+
+Table Head, Body and Foot.
+=> The content within tables can be broken up into multiple groups, including
+a "head","bod" and "foot".
+-> The <thead> (table head), <tbody> (table body) and <tfoot> (table foot) elements help to structurally organize tables.
+
+* -> The table head element, <thead> wraps the heading row/rows of a table to denote the head.
+* -> The table head should be placed at the top of a table after any <caption> element and before any <tbody> element.
+* -> After the table head may come either the <tbody> or <tfoot> elements.
+* -> The <tbody> element should contain the primary data within a table.
+* -> The <tfoot> element contains data thatn outlines the contents of a table.
+
+Example
+<table>
+  <caption>Design and Front-End Development Books</caption>
+  <thead>
+    <tr>
+      <th scope="col">Item</th>
+      <th scope="col">Availability</th>
+      <th scope="col">Qty</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Don&#8217;t Make Me Think by Steve Krug</td>
+      <td>In Stock</td>
+      <td>1</td>
+      <td>$30.02</td>
+    </tr>
+    ...
+  </tbody>
+  <tfoot>
+    <tr>
+      <td>Subtotal</td>
+      <td></td>
+      <td></td>
+      <td>$135.36</td>
+    </tr>
+    <tr>
+      <td>Tax</td>
+      <td></td>
+      <td></td>
+      <td>$13.54</td>
+    </tr>
+    <tr>
+      <td>Total</td>
+      <td></td>
+      <td></td>
+      <td>$148.90</td>
+    </tr>
+  </tfoot>
+</table>
+

@@ -1,0 +1,393 @@
+Common Selectors
+-> CSS3 brought new selectors opening a new world of opportunities and improvements to the existing practices.
+
+Common Selectors
+-> Selectors that have been existing for long time include;
+   * type.
+   * class.
+   * ID selectors.
+
+-> "type" selector identifies an element based on its type specifically how that element is declared within CSS.
+-> "class" selector identifies an element based on its class attribute value, which may be reused on multiple elements as necessary to help share popular styles.
+-> "ID" selector identifies an element based on its ID attribute value which is unique and should only be used once per page.
+
+Child Selectors
+-> Child selectors provide a way to select elements that fall within one another, thus making them children of their parent element.
+-> These selections can be made in two different ways using either;
+       * descendant
+       * direct child selectors.
+
+a. Descendant Selector
+-> The most common child selector is the descendant selector which matches every element that follows an identified ancestor.
+-> The descendant element does not have to come directly after the ancestor element inside the document tree such as a parent child relationship but may fall
+anywhere within the ancestor element.
+-> Descendant selectors are created by spacing apart elements within a selector thus creating a new level of hierachy for each element list.
+-> The "article h2" selector is a descendant selector only selecting "h2" elements that fall inside of an "article" element.
+
+Example;
+   article h2 {
+      
+    }
+
+Direct Child Selector
+-> Sometimes descendant selectors go a bit overboard , selecting more than hoped.
+-> At times only the direct children of a parent element need to be selected, not every instance of the element
+nested deeply inside of an ancestor.
+-> In this event the direct child selector may be used by placing a greater than sign (>) between the parent element and the child element within the selector.
+
+For Example;
+
+article > p ; is a direct child selector only identifying elements that fall directly within an article element.
+-> Any p element that is placed outside of an "article" element or nested inside of another element other than article element will not be selected.
+
+Child Selectors Overview
+a. article h2 -> ( descendant selector) => Selects an element that resides anywhere within an identified ancestor element.
+b. article > p -> Selects an element that resides immediately inside of an identified parent element.
+
+Sibling Selector
+Sibling elements -> are those elements that share the same common parent.
+-> There may also be need to select such king of elements.
+-> These sibling selections can be made in 2 ways;
+    a. general sibling 
+    b. adjacent sibling
+
+General Sibling Selector
+-> The general sibling selector allows elements to be selected based on their sibling elements i.e. those that 
+share the same common parent.
+-> They are created by using the "tilde" character between two elements within a selector.
+-> The first element identifies what the  second element shall be a sibling with and both of which must share the same parent.
+
+Example
+
+h2 ~ p { ...}
+-> In order for "p" element to be selected, it must come after any "h2" element.
+
+Adjacent Sibling Selector
+-> The adjacent sibling selector will only select sibling elements directly following after another sibling element.
+-> Instead of using the "tilde" character as with general sibling selector, the adjacent sibling selector uses a plus (+) character
+between the two elements within a selector.
+-> Again, the first element identifies what the second element shall directly follow after and be a sibling with and both of which must share the same parent.
+
+Example;
+
+h2 + p { ... }
+// only p elements directly following after h2 elements will be selected
+
+Attribute Selectors
+-> Some of the common selectors looked at early may also be defined as attribute selectors in which an
+element is selected based upon its class or ID value.
+-> These class and ID attribute selectors are widely used and extremly powerful but only the beggining.
+-> Other "attribute selectors" have emerged over years, specifically taking a leap forward with CSS3.
+
+Attribute Present Selector
+-> The first attribute selector identifies an element based on whether it includes an attribute or not regardless of any actual value.
+-> To select an element based on if an attribute is present or not, include the attribute name in square brackets, [], within a selector.
+-> The square brackets may or may not follow any qualifier such as an element type or class, all depending on the level of specificity desired.
+
+Example
+<a href="#" target="_blank"></a>
+
+CSS
+a[target] {...}
+
+a[href="http://google.com/"] {...}
+
+Attribute Contains Selector
+-> When looking to find an element based on part of an attribute value but not an exact match, 
+the asterisk character ( * ) may be used within the square brackets of a selector.
+-> The asterik should fall just after the "attributes" name, directly before the equal sign.
+-> Doing so denotes that the value to follow only needs to appear or be contained within the attribute value.
+
+Example
+<a href="/login.php"></a>
+
+a[href*="login"]{...}
+
+Attribute Begins with Selector
+-> In addition to selecting an element based on if an attribute value contains a stated value, it is also possible to select an element
+based on what an attribute value begins with.
+-> Using a circumflex i.e. ( ^ ) within the square brackets of a selector between the attribute name and equal sign denotes that the attribute value should begin with the stated value.
+
+Example
+CSS
+a[href^="https://"]{...}
+
+HTML
+<a href="https://chase.com/"></a>
+
+Attribute ends with a selector
+-> Opposite of the begins with selector.
+-> Instead of using the "^", the ends with attribute selector uses the dollar sign i.e. "$", within the square
+brackets of a selector between the attribute name and the equals sign.
+-> Using the dollar sign denotes that the attribute value needs to end with the stated value.
+
+Example
+
+CSS
+
+a[href$=".pdf"]{...}
+
+HTML
+<a href="/docs/menu.pdf">...</a>
+
+Attribute Spaced Selector
+-> At times, attribute values may be spaced apart in which only one of the words needs to b matched in order to 
+make a selection.
+-> "~" within the square brackets of a selector between the "attribute" name and the equals sign denotes an attribute value that should be whitespace-separated, with one word matching the exact stated value.
+
+Example
+
+CSS
+
+a[rel~="tag"]{...}
+
+HTML
+
+<a href="#" rel="tag nofollow"]
+
+Attribute Hyphenated Selector
+
+-> When an attribute value is hyphen-separated rather than whitespace-separated, the vertical line character ( | ) may be used within the square brackets of a selector.
+-> The vertical line denotes that the attribute value may be hyphen-saeparated however the "hyphen-separated" words must begin with a stated value.
+
+Example
+
+a[lang|="en"] {...}
+
+HTML
+<a href="#" lang="en-US">...</a>
+
+Pseudo Classes
+-> Pseudo-classes are similar to regular classes in HTML however they are not directly stated within the markup,
+instead they are dynamically populated as a result of users actions or the document structure.
+
+A. Link pseudo-classes
+-> Some of the more basic pseudo-classes include the TWO revolving around links;
+  * :link
+  * :visited
+-> define if a link has or hasn't been visited.
+-> To style an anchor which has not been visited, the ":link" pseudo class comes into play.
+-> ":visited" pseudo class styles links that a user has already visited based on their browsing history.
+
+Example
+a:link {...}
+a:visited {...}
+
+B. User Action Pseudo-classes
+-> Based on user's actions, different pseudo-classes may be dynamically applied to an element of which include;
+
+* a:hover {...} -> Is applied to an element when a user moves their cursor over the element.
+* a:active {...} -> Is applied to an element when a user engages an element such as clicking on an element.
+* a:focus {..} -> Is applied to an element when a user has made an element the focus point of the page, often by using keyboard to tab from one element to another
+
+User Interface State Pseudo-classes
+-> As with the link pseudo-classes, there are also some pseudo-classes generated around the user interface state of elements,
+particularly with the form elements.
+Include;
+* :enabled -> selects an input that is in the default state of enabled and available for use.
+* :disabled -> selects an input that has the disabled attribute tied to it.
+* :checked -> selects checkbox or radio buttons that are "checked";
+* indeterminate -> When select box or radio button has neither been selected nor unselected, it lives in an indeterminate state from which the :indeterminate pseudo-class can be used to target these elements.
+
+input:enabled {...}
+input:disabled {...}
+input:checked {...}
+input:indeterminate {...}
+
+Structural and Position Pseudo-classes
+-> A number of pseudo-classes are "structural" and "position" based, in which they are
+determined based off where the elements reside in the document tree.
+
+A. :first-child vs :last-child vs :only-child
+a. :first-child -> select an element if it's the first child within its parent.
+b. :last-child -> select an element if it's the last element within its parent.
+
+-> The two pseudo-classes above are perfect for selecting the first or the last items in a list.
+c. :only-child -> selects an element if it is the only element within the parent.
+
+Alternatively, the :only-child could be rewritten as :first-child:last-child.
+-> however only-child holds lower specifity.
+
+Examples
+
+li:first-child {...}
+li:last-child {...}
+div:only-child {...}
+
+Example
+<ul>
+  <li>This list item will be selected</li> // selected by li:first-child
+  <li>
+    <div>This div will be selected</div> // selected by div:only-child -> only child of a parent
+  </li>
+  <li>
+    <div>...</div>
+    <div>...</div>
+  </li>
+  <li>This list item will be selected</li> // selected by li:last-child
+</ul>
+
+:first-of-type vs :last-of-type vs only-of-type;
+-> Helps us to find the first, last and only  of a specific type of element.
+
+a. :first-of-type -> will select the first element of its type within a parent.
+b. :last-of-type -> will select the last element of its type within a parent
+c. :only-of-type -> will select an element if it is the only of its type within the parent.
+
+There also exists other structural and position based pseudo-classes that select elements based on a number of algebraic expression.
+* :nth-child(n)
+* :nth-last-child(n)
+* :nth-of-type(n)
+* :nth-last-of-type(n)
+
+-> The number or expressions that fall within the parentheses determines exactly what element or elements are to be selected.
+-> Using a number will count individual elements from the beggining or the end of the document tree and then select one element while using an expression will count numerous elements 
+from the beggining or end of the document tree and select them in groups or multiples.
+
+Example
+li:nth-child(4) -> will select the fourth list item within a list.
+
+Expressions for pseudo classes
+-> Falls in the format of "an, an+b , an-b , n+b , -n+b ,-an+b".
+The same expression may be translated and read as (a*n)+/-b
+
+-> The "a" variable stands for multiplier in which elements will be counted in while "b"
+variable stands for where the counting will begin or take place.
+
+For example
+li:nth-child(3n) -> will identifier every third list item within a list.
+Using the equation, these equates to (3 * 0, 3 * 1, 3 * 2).
+
+-> Additionally, the "odd" and "even" keyword values may be used.
+-> As expected, this will select "odd" or "even" elements respectively.
+-> Should keyword values ont be appealing, the expression of 2n+1 would select all the odd elements while expression 2n would select all even alements.
+
+Using the "li-nth-child(4n + 7) selector, will identify every fourth list item starting with the seventh list item.
+-> Equates to (4 * 0) + 7, (4 * 1) + 7, (4 * 2) + 7...,
+
+-> Using the "n" arguement without being prefixed by a number results in the variable being interpreted as "1".
+Thus for example, li:nth-child(n+5) selects every list item starting with the fifth list item, leaving the first four items unselected.
+-> Equates to (1*0) + 5, (1*1)+5, (1*2)+5,,,
+
+-> Negative numbers may also be used.
+->Example;
+li:nth-child(6n-4) -> will start counting every 6th list item starting at negative four, selecting the second,eigth and fourteenth list items and so forth.
+Could also be written as li:nth-child(6n+2)
+
+-> A negative "a" variable or a negative n arguement must be followed by a positive b variable.
+-> When preceeded by a negative "a" variable or a negative "n" arguement, the b variable identifies how high the counting will reach
+For example
+   li:nth-child(-3n+12) will select every third list item within the first twelve list items.
+   li:nth-child(-n+9) -> will select the first nine list items within a list, as the "n" arguement,
+without any stated "a" variable is defaulted to "-1".
+
+:nth-child(n) vs :nth-last-child(n)
+-> These pseudo classes work a bit like the :first-child and :last-child pseudo classes in that they look and count all of the elements within the parent 
+and only selects the elements specifically identified.
+-> The ":nth-child(n) works from the beginning of the document tree while the :nth-last-child(n) works from the end of the document tree.
+
+Example 
+
+li:nth-child(3n) -> will identify every third list item.
+
+li:nth-child(2n + 3) -> will identify every second list item starting with the third and then onward.
+
+li:nth-child(-n+4) -> will select the first four list items.
+
+li:nth-child(-2n+5) -> select every second list item from the first five list items
+
+* nth-last-child(n) -> switches the direction of the counting , with counting starting from the end of the document tree.
+ Example
+:nth-last-child(3n + 2) -> will identify every third list item starting from the second to last item in the list, moving towards the beggining of the lsit
+
+:nth-of-type(n) vs :nth-last-of-type(n)
+-> Are very similar to that of the :nth-child(n) and :nth-last-child(n) however, instead of counting every element within a parent, the "nth-of-type(n) and "nth-last-of-type(n)" pseudo class only count elements of their own type.
+-> For example, when counting "paragraphs" within an article, the "nth-of-type(n) and :nth-last-of-type(n) - will skip any headings, divisons or miscallenous elements that are not paragraphs while :nth-child(n) and :nth-last-child(n) would count every element 
+no matter what its atypes are, only selecting the ones that match the element with the stated selector.
+
+
+Target Pseudo-class
+-> The :target pseudo-class is used to style elements when an element's ID attribute value matches that of the URI fragment identifier.
+-> The fragment identifier within a URI can be recorgnized by the hash (#) character and what directly follows it.
+-> The URL "http://example.com/index.html#hello" includes the fragment identifier of "hello".
+-> When this identifier matches the ID attribute value of an element on the page, <section id="hello"> for example, that element may be identified and styled using the :target pseudo class.
+
+-> Fragment identies are most commonly used on page links or linking to another part of the same page.
+
+Example
+
+section:target { }
+HTML
+<section id="hello">
+
+Empty Pseudo class
+-> The ":empty" pseudo-class allows elements that do not contain children or text nodes to be selected.
+-> Comments, processing instructions and empty text nodes are not considered children and thus are not treated as such.
+
+Negation Pseudo-class
+-> The negation pseudo-class i.e ":not(x)" is a pseudo-class that takes an arguement which is filtered out fron the selection
+to be made.
+-> The "p:not(.intro)" selector uses the negation pseudo-class to identify every paragraph element without the class of intro.
+
+Example
+div:not(.awesome) {...}
+:not(div) {...}
+
+Pseudo-elements
+-> These are dynamic elements that doesn't exist in the document tree and when used within selectors, these pseudo-elements allow unique parts of the page to be
+stylized.
+
+* Note: Only one pseudo-element may be used within a Selector at a time.
+
+Textual Pseudo Elements
+ a. :first-letter vs :first-line 
+-> ":first-letter" pseudo element will identify the first letter of a text within an element,
+-> "first-line" pseudo-element will identify the first-line of text within an element.
+
+Generated Pseudo elements
+-> The ":before and :after" generated content pseudo-elements create new-inline level pseudo elements just inside the selected element.
+-> Most commonly, these pseudo-elements are normally used in conjuction with the "content" property to add insignificant information to the page.
+-> -> Additional uses of these pseudo elements may be to add user interface components to the page without having to clutter the document with unsemantic elements.
+
+":before" - creates a pseudo-element before or infront of the selected element.
+":after" - creates a pseudo element after or behind the selected element.
+
+-> These pseudo-elements usually appear nested inside the selected element and not outside of it.
+
+Example
+a:after {
+  color: #9799a7;
+  content: " (" attr(href) ")";
+  font-size: 11px;
+}
+
+<a href="http://google.com/">Search the Web</a>
+<a href="http://learn.shayhowe.com/">Learn How to Build Websites</a>
+
+The :after pseudo-element above is used to display the "href" attribute value of anchor links within the parentheses after the actual links.
+-> The information here is helpful but not neccessary should a browser not support these pseudo links.
+
+Fragment Pseudo-element
+-> The "::selection" fragment pseudo-element identifies part of the document that has been selected or
+highlighted by a user's actions.
+-> The selection may then be stylized, however only using color, background,background-color and text-shadow.
+
+Example
+::-moz-selection {
+    background: #ff7b29;
+}
+::selection {
+  background: #ff7b29;
+}
+
+
+
+
+
+
+
+
+
+
+  
+

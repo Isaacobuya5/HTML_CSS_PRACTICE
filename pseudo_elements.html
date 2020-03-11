@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+    />
+    <title>Practice Pseudo Elements before and After</title>
+    <style>
+      .firstText::before {
+        content: "Isaac Obuya";
+        color: red;
+        text-transform: uppercase;
+        font-size: 2rem;
+        padding-right: 10px;
+      }
+      .firstText {
+        color: green;
+      }
+
+      li::before {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f105 ";
+        padding-right: 10px;
+      }
+
+      li {
+        list-style-type: none;
+      }
+
+      label::after {
+        content: "*";
+        color: red;
+      }
+
+      .fb_link::after {
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f35d";
+        font-size: 16px;
+        padding-left: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <p class="firstText">Welcome to my Portfolio website</p>
+    <ul>
+      <li>Java</li>
+      <li>Python</li>
+      <li>HTML</li>
+      <li>CSS3</li>
+      <li>Javascript</li>
+    </ul>
+
+    <p>Example of the "after" pseudo element</p>
+    <label>Name:</label><br />
+    <input type="text" placeholder="Enter your name here" /><br />
+    Click <a href="https://facebook.com" class="fb_link">here</a> to check my
+    facebook profile
+  </body>
+</html>

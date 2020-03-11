@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  background: #3a4444;
+  padding: 20px;
+}
+.box {
+  width: calc(25% - 24px);
+  border: 2px solid lightgray;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  float: left;
+}
+
+.box h2 {
+  color: #2db475;
+  border-bottom: 2px solid white;
+  margin-bottom: 20px;
+}
+
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.group {
+  clear: both;
+  *zoom: 1;
+}

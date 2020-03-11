@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #f3f3f3;
+  }
+  
+  .container {
+    border: 5px solid red;
+  /*   height: 100vh; */
+    height: 300px;
+    display: flex;
+    /** to work with (align-items) vertical alignment, we have to set the height for our container ***/
+    /**wrap, no-wrap(default) , wrap-reverse */
+     flex-wrap: wrap;
+    /** flex-start, flex-end, center, space-around, space-evenly **/
+  /*   justify-content: flex-start; */
+    justify-content: space-around;
+    
+    /** align-items values -> stretch (default), flex-start, flex-end, center, baseline **/
+    align-items: flex-start;
+    /* align-content -> stretch (default) flex-start, space-around, space-between, flex-end */
+    /** different from align-items in that it aligns the entire rows **/
+  /*   align-content: flex-start; */
+    
+    /** flex-grow -> allows us to fill out the space in our container**/
+    
+  }
+  /** by default, all children have a flex-grow set to 0 ***/
+  /** by default, all children have flex-shrink set to one **/
+  /** items set to shrink will shrink in order to make space for some other items **/
+  /** flex-basis -> allows us to set a base value **/
+  .box {
+    padding: 30px 0px;
+    text-align: center;
+    font-size: 35px;
+    color: #f3f3f3;
+  /*   flex-grow: 1; */
+  /*   flex-basis: 150px; */
+  /*   flex: 1 0 150px; */
+    flex: 0 0 calc(25% - 1rem); /** mostly used for columns **/
+    /** It is advisable to set only padding top and bottom but not padding left and right moreso when using percentages
+   Suppose we need margins between our columns, we can use the calc() function and subtract whatever value we want for the margin
+    However, this will leave space at the farthest end thus we can use justify-content property values such as space-evenly, space-around etc
+    **/
+  }
+  
+  .box-1 {
+    background: #581f18;
+    order: 1;
+  /*   flex-grow:1; */
+  }
+  
+  .box-2 {
+    background: #f0a202;
+  /*   flex-grow: 2; */
+  /*   flex-shrink: 0; */
+  /*   width: 300px; */
+  }
+  
+  .box-3 {
+    background: #d95d39;
+  }
+  
+  .box-4 {
+    background: #202c59;
+  }
+  
+  .box-5 {
+    background: #51cb20;
+    order: -1;
+  /*   align-self: flex-end; */
+  }
+  
+  .generic {
+    background: #202c59;
+  }
+  

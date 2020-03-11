@@ -1,0 +1,46 @@
+Firebase & Firestore Review
+QueryReferences, Snapshots and Security Rules
+
+-> Query; is a request that we make to a firestore to give us something from the database.
+Firestore then return us either References object or Snapshot object.
+- Of these objects, they can either be Document or Collection versions.
+-> Firestore will always return us these objects even if nothing exists from that query.
+
+queryReference Object -> is an object that represents the "current" place in the database that we are querying.
+We get them by calling either;
+firestore.doc("/users/:userId");
+firestore.collections('/users');
+
+-> It does not have the actual data of the collection or document. Instead has properties that tell us details about it, or the method to get the Snapshot object
+which gives us the data we are looking for.
+
+DocumentReference versus CollectionReference object
+-> We use documentRef objects to perform our CRUD methods, i.e. (create, retrieve, update, delete).
+The documentRef methods are .set(), .get(), .update() and .delete() respectively.
+
+We can also add documents to collections using the collectionRef object using the .add() method.
+collectionRef.add({//value: prop})
+// We get the the snapshotObject from the referenceObject using the .get() method i.e. documentRef.get() or collectionRef.get()
+
+documentRef returns a documentSnapshot object
+collectionRef returns a querySnapshot object i.e. collectionSnapshot object.
+
+DocumentSnapshot
+- We get a documentSnaphot object from our documentReference object.
+- It allows us to check if a document exists at this query using the .exists property which returns a boolen.
+- We can also get the actual properties on the object by calling the .data() (snapshot.data()) method, which returns a JSON object
+of the document.
+
+QuerySnapshot
+-> We get QuerySnapshot from our collectionReference object.
+-> We can check if there are any documents in the collection by calling the .empty property which returns a boolean.
+-> We can get all documents in the collection by calling .docs property.
+. It returns an array of our documents as documentSnapshot objects.
+
+Most important from querySnapshot are;
+* docs
+* empty()
+* size
+
+
+

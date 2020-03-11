@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 100%;
+  height: 100%;
+}
+.container {
+  /* background:url("../../../forest.jpg") 0 0 no-repeat, url("../../../flowers.jpg") 0 0 no-repeat; */
+  margin-top: 10px;
+  width: 75%;
+  height: 70vh;
+  background: blue;
+  background: url("../../../forest.jpg") 0 0 no-repeat;
+  background-size: contain;
+}

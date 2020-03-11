@@ -1,0 +1,19 @@
+GRID LAYOUT WITH CSS
+-> Having two columns means having three grid lines.
+-> grid-column-start -> marks the start of the grid
+-> grid-column-end -> marks the end of the grid.
+-> grid column; is a short hand property for grid-column-start to grid-column-end;
+-> For exmple if we want to make a header that stretches the full width of the page, we could have;
+
+  * grid-column-start: 1;
+    grid-column-end: 3;
+     
+    OR
+
+  grid-column: 1 / 3;
+  OR grid-column: 1 / span 2;
+
+  OR grid-column: 1 / -1;
+  // -1 targets the very last column line. Gives us more flexibility when we are adding columns and are not sure of the exact number of columns.
+
+* -> Grid template areas allows us to define how the structure of our website should look like by assigning labels to each and every part of our website

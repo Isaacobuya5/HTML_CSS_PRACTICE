@@ -1,0 +1,312 @@
+Working with Typograpghy
+
+Before, websites relied on fonts installed on computers so as to render texts. Thus if a font was not installed on a computer, then it couldn't be rendered on a computer.
+-> Now, with the ability to embed fonts, we have a larger palette of typefaces to choose from, including those that we add to a website.
+
+Basic Principles of Typography.
+
+Typeface vs Font
+* Typeface -> is what we see i.e. an artistic impression of how text looks, feels and reads.
+* Font is the file that contains the typeface.
+Thus using a font on a computer allows the computer to access the typeface.
+
+Adding Color to Text
+-> The typeface and the text color generally have the largest impact on the look and the legibility of a page.
+-> Getting rid of the browser DEFAULTS and using our own typeface and text color immediately begins setting the tone of our page.
+-> The set the color for our text, we use the "color" property.
+-> The "color" property accepts one color value but in different formats i.e. hexadecimal, rgb, rgba and HSLa.
+-> Hexadecimals are the most prevalent as they provide the most control with the least amount of effort.
+
+Example;
+html {
+  color: #555;
+}
+
+Changing the Font Properties
+-> CSS offers a lot of different properties for editting the look and feel of text on a page.
+-> Properties fit into two categories;
+   * font-based properties
+   * text-based properties.
+-> Most of these properties will be prefaced with either "font-*"  or "text-*".
+
+a. Font Family
+-> Is used to declare the "font" as well as the "fallback/substitute fonts" that should be used to display the text.
+-> The value of font-family property contains multiple font names all comma separated.
+-> The first declared font starting from left is the "primary font choice", should the first font be unavailable , alternative fonts 
+are declared after it in order of presence from left to right.
+-> Font names consisting of two or more words need to be wrapped in quotation marks.
+-> Additionally, the last font should be a keyword value, which will use a system default font for the specified type, most commonly either
+sans-serif or serif.
+
+Example
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+b. Font Size
+-> The "font-size" property provides the ability to set the size of text using common length values,
+including * pixels, em units, percentages, points or font-size keywords.
+
+c. Font Style
+-> The "font-style" property accepts four keyword values i.e. ;
+   * italic (set text to italic)
+   * normal (returns text to its normal style)
+   * oblique
+   * inherit
+
+.special {
+   font-style: italic;
+}
+
+d. Font Variant
+-> Normally used when we need to set text in small caps.
+-> The "font-variant" property accepts three values;
+        * normal
+        * small-caps
+        * inherit
+
+e. Font Weight
+-> We may want to style text as "bold" or to change the specific weight of typeface.
+-> For theses cases, we will use the "font-weight" property.
+-> "font-weight" property accepts either keyword or numeric values.
+-> Keyword values include;
+ * normal
+ * bold
+ * bolder
+ * lighter
+ * inherit
+-> It's normally reccommended to primarily use normal and bold to change 
+text from normal to bold and vice versa rather than using "bolder" and "lighter".
+-> It's better to use a numeric value for more specific control.
+-> Numeric values exists from * 100 - 900.
+-> The order of these weights starts with the thinnest weight "100" and scales up to the thickest
+weight "900".
+* normal --> 400
+* bold --> 700
+
+Typeface Weights
+-> Before using a numeric value, we need to check and see whether the typeface we are using comes in with weight
+we would like to use.
+-> Attempting to use a weight that's not available for a given typeface will cause those styles to default to the closest value.
+
+f. Line Height
+-> Is the distance between two lines of text (often reffered to as leading).
+-> It accepts all the general length values.
+-> The best practice for legibility is to set the line-height to around one and a half times our "font-size" property value.
+-> This could be quickly accomplished by setting the line-height to 150% or just 1.5.
+-> However, when working with a baseline grid, having a little more control over our line-height using pixels may be preffered.
+
+-> Line height may also be used to vertically center a single line of text within an element.
+-> Mostly with buttons, alert messages and other single line text.
+
+Example;
+.btn {
+   height: 22px;
+   line-height: 22px;
+}
+
+Shorthand font properties
+-> The "font" property can accept multiple "font-based" property values;
+-> The order is as shown below;
+
+html {
+   font: font-style, font-variant, font-weight, font-size, line-height, font-family;
+}
+
+As a shorthand value, these property values are listed from left to right without the use of commas.
+-> A forward slash is needed between the "font-size" and "line-height" property values.
+
+Example;
+
+html {
+  font: italic small-caps bold 14px/22px "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+CSS Pseudo classes
+-> Pseudo classes are keywords that may be added to the end of a selector to style an element when it is in its unque state.
+-> The :hover pseudo class styles an element when a user hovers over that element.
+
+Text Properties
+Involves how to;
+* align, decorate, indent,transform and space text.
+
+a. Text align
+-> Aligning text is an important part of building a rhythm and flow on a page.
+-> Done using "text-align" property.
+-> Five values;
+  * left,
+  * right,
+  * center // used to center an element
+  * justify // maintains a straight line on both left and right
+  * inherit
+b. Text Decoration
+-> The "text-decoration" property provides a handful of ways to spruce up text.
+-> It accepts the keyword values of * none, overline, underline, line-through and inherit.
+
+-> Is mostly used to underline links, which is the default browser style.
+
+.note {
+ text-decoration: underline;
+}
+
+c. Text Indent
+-> "text-indent" property can be used to indent the first line within an element, as is most commonly seen in printed publications.
+-> All common length properties are available for this property including pixels, points, percentage etc.
+-> Positive values will indent text inward while negative values will indent text outward.
+
+Example
+p {
+  text-indent: 20px;
+}
+
+d. Text Shadow
+-> The "text-shadow" property allows us to add a shadow or multiple shadows to the text.
+-> It generally take four values all listed one after the other from left to right.
+-> * The first three values are lengths and the last value is a color.
+-> * first value - determines the shadow's horizontal offset.
+-> * second value - determines the shadow's vertical offset.
+-> * third value - determines the shadow's blur radius.
+-> * fourth value - shadow's color which can be any color values used within the color property.
+
+Example
+p {
+  text-shadow: 3px 6px 2px rgba(0, 0, 0, .3);
+}
+The text-shadow above is casting a 30% opaque black shadow 3px towards right, 6 pixels down and blurred 2px of all <p> element text.
+-> Using negative length values for the horizontal and vertical offset allows us to move shadows towards the "left" and "top".
+-> Multiple text shadows can also be chained together using comma separated values adding more than one shadow to the text.
+-> Using numerous shadows allows us to place them above and below the text in any variation we desire.
+
+Text Shadow vs Box Shadow
+-> The text shadow places a shadow specifically on the text of an element .
+-> If we would like to place a shadow on the element as a whole, we can use the 
+"box-shadow" property.
+-> The "box-shadow" property works just like the "text-shadow" property in that it accepts values for horizontal  and vertical offsets, a blur and a color.
+
+=> The box shadow property also accepts an optional fourth length value, before the color value, for the spread of a shadow.
+-> As a positive length value, the spread will expand the shadow larger than the size of the element it is applied to.
+-> As a negative length value, the spread will shrink the shadow to be smaller than the size of the element that it is applied to.
+
+*-> lastly "box-shadow" property may include an optional "inset" value at the beggining of the value to place the shadow inside an element as opposed to outside an element.
+
+e. Text Transform
+-> While the "font-variant" property looks for an alternate variant of a typeface,
+the "text-transform" property will change the text inline without the need for an alternate typeface.
+-> Five values;
+  * none,
+  * capitalize ( capitalize the first letter of each word)
+  * uppercase ( capitalize every letter)
+  * lowercase ( make every letter lowercase)
+  * inherit
+
+Example;
+p {
+ text-transform: uppercase;
+}
+
+f. Letter Spacing
+-> Using "letter-spacing" property, we can adjust the space/ tracking between letters on a page.
+-> A positive length value will push letters farther apart from one another while negatiive length value will pull letters closer together.
+-> The keyword value "none" will return the space between letters back to its normal size.
+
+-> Using "relative length value" with the letter spacing property will help ensure that we maintain correct spacing between letters as the font-size of the text is changed.
+Example
+p {
+  letter-spacing: -.5em;
+}
+
+g. Word Spacing
+-> Much like the letter spacing property, we can also adjust the space between words within an element using the word-spacing property.
+-> Accepts same length values and and keywords as the letter spacing property.
+Example;
+p {
+  word-spacing: .25em;
+}
+
+Using Web-Safe Fonts
+-> By default, there are a few fonts that are pre-installed on every computer, tablet, smart-phone or other web browsing
+capable device.
+-> Because they have been installed on every device, we can use these fonts freely within our websites, knowing that no matter what device
+is browsing our site, our font will render properly.
+-> They include;
+
+Arial
+Courier New, Courier
+Garamond
+Georgia
+Lucida Sans, Lucida Grande, Lucida
+Palatino Linotype
+Tahoma
+Times New Roman, Times
+Trebuchet
+Verdana
+
+Embedding Web fonts
+-> We also have the ability to upload fonts to a server and include them on a website via the CSS @font-face at rule
+-> To embedd our own web fonts, we use the "@font-face" at-rule to identify our font , as well as the source of our font ( the path to the font file containing our chosen font),
+via the "src" attribute. From there, we are able to use this font by including its name within any font-family
+property value.
+
+Example
+@font-face {
+   font-family: "Lobster";
+    src: local("Lobster"), url("lobster.woff") format("woff");
+}
+
+body {
+  font-family: "Lobster", "Comic Sans", cursive;
+}
+
+Example - google fonts;
+
+Including citations and Quotes
+-> Writing online sometimes involves citing sources or quotations.
+-> All of the different citation and quotation cases can be covered semantically in HTML using;
+  * <cite> <q> <blockoute> elements.
+
+  <cite> ; -> Used to reference a creative work.
+  <q>; Used for short inline quotations.
+  <blockquote>; used for longer external quotations.
+
+A. Citing a Creative Work
+=> The <cite> inline element is used in HTML to specifically cite a creative work.
+-> The element must include either the title of the work, the author's name, or a URL reference to the work.
+  
+* By default, the content wrapped within the <cite> element will appear in italics 
+within the browser.
+* For additional reference, it helps to include a hyperlink to the original source of the citation when relevant.
+
+Example;
+<p>The book <cite><a href="http://www.amazon.com/Steve-Jobs-Walter-Isaacson/dp/1451648537">Steve Jobs</a></cite> is truly inspirational.</p>
+
+B. Dialogue and Prose Quotation
+-> Quite often, dialogue or prose is quoted inline within other text.
+-> For this purpose the <q> inline element should be applied.
+-> The <q> element semantically indicates quoted dialogue or prose and shouldn't be used for any other purpose.
+
+External Quotation
+-> To quote large block of text that comes from an external source and spans several lines, we use <blockquote>.
+-> The blockquote is a block-level element that may have other block elements nested inside it including its headings and paragraphs.
+
+Example
+<blockquote>
+  <p>&#8220;In most people&#8217;s vocabularies, design is a veneer. It&#8217;s interior decorating. It&#8217;s the fabric of the curtains, of the sofa. But to me, nothing could be further from the meaning of design. Design is the fundamental soul of a human-made creation that ends up expressing itself in successive outer layers of the product.&#8221;</p>
+</blockquote>
+
+External citation
+-> Longer quotes used within the <blockquote> element will often include a citation.
+-> This citation may include both the "cite" attribute and the <cite> element.
+-> The cite attribute can be included on the <blockquote> element in the same way asu used in <q> element.
+
+-> The <cite> element can fall after the actual quote itself to specify the original source of the quote if relevant.
+
+<blockquote cite="http://money.cnn.com/magazines/fortune/fortune_archive/2000/01/24/272277/index.htm">
+  <p>&#8220;In most people&#8217;s vocabularies, design is a veneer. It&#8217;s interior decorating. It&#8217;s the fabric of the curtains, of the sofa. But to me, nothing could be further from the meaning of design. Design is the fundamental soul of a human-made creation that ends up expressing itself in successive outer layers of the product.&#8221;</p>
+  <p><cite>&#8212; Steve Jobs in <a href="http://money.cnn.com/ magazines/fortune/fortune_archive/2000/01/24/272277/index.htm"> Fortune Magazine</a></cite></p>
+</blockquote>
+
+
+
+
+
+

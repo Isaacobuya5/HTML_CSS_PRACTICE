@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice forms in HTML5</title>
+  </head>
+  <body>
+    <form>
+      <fieldset>
+        <legend>Crucial Information</legend>
+      <label for="birthday">Date of Birth: </label>
+      <input type="date" name="birthday" id="birthday" /><br />
+      <label for="time">Time: </label>
+      <input type="time" name="game-time" id="time" /><br />
+      <label for="range">Range: </label>
+      <input type="range" name="range_data" id="range" min="0" max="11" /><br />
+      <label for="email">Email: </label>
+      <input type="email" name="email-address" id="email" /><br />
+      <label for="url">URL: </label>
+      <input type="url" name="website" id="url" /><br />
+      </fieldset>
+      <label for="cost">Cost: </label>
+      <input type="number" name="cost" id="cost" /><br />
+      <label for="phone-number">Phone: </label>
+       <input type="tel" name="phone-number" id="phone-number" /><br />
+      <label>
+      <input type="radio" name="gender" value="male"> male
+      </label>
+      <label>
+      <input type="radio" name="gender" value="female"> female <br/>
+      </label>
+
+      Favorite Color: <input type="checkbox" name="color" value="Red" checked> Red
+                      <input type="checkbox" name="color" value="Blue"> Blue
+                      <input type="checkbox" name="color" value="green"> Green <br/>
+
+      Choose Programming Languages: <select name="programming">
+                                    <option value="java">Java</option>
+                                    <option value="python">Python</option>
+                                    <option value="javascript">JavaScript</option>
+                                    </select><br/>
+      About Me: <textarea cols="5" rows="1"></textarea><br/>
+      <input type="hidden" name="check-form" value="invalid" /><br/>
+      Upload your Profile Photo: <input type="file" name="profile" /><br/>
+      <input type="submit" name="submit" value="Submit" /><br/>
+      <button name="submit">
+        <strong>Send Us</strong> a Message
+      </button>
+
+    </form>
+  </body>
+</html>

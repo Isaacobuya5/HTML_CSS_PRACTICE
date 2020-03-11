@@ -1,0 +1,30 @@
+Positioning with Inline-block
+-> helping for laying out pages or placing elements next to one another.
+-> display elements within a line allowing them to accept all box model properties;
+* height, width, border and margin.
+-> Allows us to take full advantage of the box model without having to worry about clearing floats.
+
+-> Remember, because inline-block elements are displayed on the same line as one another, they normally include
+a single space . When the size of each single space is added to the width and horizontal margin values  of all elements 
+in the row, the total width becomes too great, pushing the last <section> element
+
+-> In order to display all of the <section> elements on the same row, the whitespace between each section element must be removed.
+
+Ways of Removing whitespace between inline-block elements
+i.> <section>
+....
+</section><section>
+....
+</section><section>
+...
+</section>
+
+Creating Reusable Layouts
+Reccommendation
+a. Use inline-block elements to create the grid/ layout of a page and then use floats to wrap content
+around a given element.
+Currently, there are new CSS specifications in the works - i.e. flex- and grid- based properties.
+
+
+
+

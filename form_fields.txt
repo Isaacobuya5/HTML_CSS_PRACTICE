@@ -1,0 +1,221 @@
+Building Forms
+-> * Forms are an essential part of the Internet as they provide a way for websites to capture
+information from users and to process requests and they offer controls for nearly every imaginable
+use of an application.
+-> Through controls / fields, forms can request a small amount of information - often a "search" query 
+or a username / password.
+-> or a large amount of information - perhaps * shipping and billing information or an entire job application.
+
+Initializing a Form
+-> To add a form to a page, we will ue the <form> element.
+-> The form element identifies where on the page control elements will appear.
+-> Additionally, the <form> element will wrap all of the elements included within the form, much like a <div> element.
+ 
+Structure
+<form action="/login" method="post">
+  ...
+</form
+
+a. "action" attribute contains the URL to which information included within the form  will be sent for processing by the server.
+b. "method" attribute is the HTTP method browsers should use to submit the form data.
+
+Form Elements
+a. Text Fields and Textareas
+=> When it comes to gathering text input from users, there are a few different elements available for obtaining data within forms.
+-> Text fields and textareas are used specifically for collecting text or string-based data.
+-> This data may include passages of text content, passwords, telephone numbers and other information.
+
+a. Text Fields
+-> One of the primary elements used to obtain text from users is the "<input>" element.
+-> The "<input>" element uses the type attribute to define what type of information is to be captured within the control.
+-> The most popular type attribute value is "text" which denotes a single line of text input.
+-> Along with setting a "type" attribute, it is also best practice to to give an <input> a "name" attribute as well.
+-> The name attribute is used as the name of the control and is submitted along with the input data to the server.
+
+Example
+<input type="text" name="username">
+
+-> The input element is a self-contained element meaning it uses only one tag and it does not wrap any other content.
+-> The value of the element is provided by it's attributes and their corresponding values.
+-> Originally, only two text-based "type" attribute values were "text" and "password", however, HTML5 brought along a
+handful of new type attribute values ->
+
+- color - email -range - time -date -month -search -url -datetime -number -tel -week.
+
+Textarea
+-> <textarea> element also allows us to capture text-based data.
+-> It is different from the <input> element in that it can accept larger passages of text spanning multiple lines.
+-> The <textarea> also has start and end tags that can wrap plain text.
+-> Because <textarea> element accepts only one type of value, the type attribute doesn't apply here but the name attribute is still used.
+
+Example
+<textarea name="comment">Add your comment here</textarea>
+
+-> The <textarea> element has two sizing attributes; cols for "width" in terms of the average character width and "rows" for height in terms of the number of lines of visible text.
+-> The size of the <textarea> however is more commonly identified using the width and height properties within CSS.
+
+Multiple Choice Inputs and Menus
+-> Apart from text-based input controls, HTML also allows users to select data using multiple choice and drop-down list;
+
+a.) Radio Buttons
+-> An easy way to allow users to make a quick choice for a small list of options.
+-> Radio buttons permit  users to select one option only as opposed to multiple options.
+-> To create a radio button, the <input> element is used with a "type" attribute value of "radio".
+-> Each radio button element should have the same "name" attribute value so that all of the buttons within a group correspond to one another.
+-> With "text-based" input, the value of an input is determined by what a user types in; with radio buttons a user is making a multiple choice
+choice selection.
+-> Thus we have to define the input value.
+-> Using the "value" attribute, we can set a specific value for each <input> element.
+
+Example
+<input type="radio" name="day" value="Friday" checked> Friday
+<input type="radio" name="day" value="Saturday"> Saturday
+<input type="radio" name="day" value="Sunday"> Sunday
+
+-> To preselect a radio button for users we can use the Boolean attribute.
+
+ii.> Check Boxes
+-> Are very similar to radio buttons.
+=> They use the same attributes and patterns with the exception of "checkbox" as their type attribute value.
+-> The difference between the two however is that check boxes allow users to select multiple values and tie them
+all to one control name, while radio buttons limit users to one value.
+
+
+Example
+<input type="checkbox" name="color" value="Red" checked> Red
+
+iii.> Dropdown Lists
+-> Are a perfect way to provide users with a long list of options to choose from in a practical manner.
+-> To create a drop-down list, we will use the "<select>" and "<option>" elements.
+-> The <select> element usually wraps all of the menu options and each menu option is marked up using the 
+<option> element.
+-> The "name" attribute resides on the <select> element and the "value" attribute resides on the <option>
+element then corresponds to the "name" attribute on the <select> element.
+-> Each <option> element wraps the text which is visible to users of an individual option within the list.
+
+Example
+<select name="day">
+  <option value="Friday" selected>Friday</option>
+  <option value="Saturday">Saturday</option>
+  <option value="Sunday">Sunday</option>
+</select>
+
+Multiple Selections
+-> The Boolean attribute "multiple" when added to the <select> element for a standard drop-down,
+allows a user to choose more than one option from the list at a time.
+-> Additionally, using the "selected" Boolean attribute on more than one <option> element within the menu will preselect multiple options.
+-> The size of the <select> element can be controlled using CSS and should be adjusted appropriately to allow for multiple selections.
+
+
+Form Buttons
+-> After a user inputs the requested information, buttons allow the user to put that information into action.
+-> Most commonly, a "submit input" or a "submit button" is used to process the data.
+
+a. Submit Input
+=> Users click the submit button to process data after filling out a form.
+=> The submit button is created using the <input> element with a "type" attribute value of "submit".
+-> The "value" attribute is used to specify the text that appears within the button.
+
+Example
+<input type="submit" name="submit" value="Send">
+
+Submit Button
+-> As an "<input>" element, the submit button is self-contained and cannot wrap any other content.
+-> If more control over the structure of the and the design of the input is desired, - along with the ability to wrap other input elements - the "<button>" element may be used.
+
+-> The <button> element performs the same way as the <input> element with the type attribute value; however
+it includes opening and closing tags, which may wrap other elements.
+-> Rather than using the value attribute to control the text within the submit button, the text that appears between the opening and the closing curly tags of the <button> element will appear.
+
+Other Inputs
+a. Hidden Input
+-> Provide a way for passing data to the server without displaying it to users.
+-> Are typically used for tracking codes, keys or other information that is not pertinent to the user but is helpful when processing th form.
+-> This information is not usually displayed on the page, however it can be found by viewing the source code of the page, thus should not be used for sensitive information.
+
+Example
+<input type="hidden" name="tracking-code" value="abc-123">
+
+File Input
+-> To allow users to add a file to a form, much like attaching a file to an email, use the "file" attribute for the "type" attribute.
+
+Example
+<input type="file" name="file">
+
+Unfortunately, styling an <input> element that has a "type" attribute value of a "file" is a tough task with CSS.
+-> Each browser has it's own default input styles and none provide much control to override the default style.
+-> Javascript and other solutions can be employed to allow for file input, but are slightly more difficult to contruct.
+
+Organizing Form Elements
+-> Using "labels", "fieldsets" and "legends" allows us to better organize forms by guiding users to properly complete them.
+
+a. Label
+-> Labels provide captions/headings for form controls unambigously tying them together and creating an accessible form for all users and assistive technologies.
+-> Created using <label> element, labels should include "text" that describe the inputs or controls they pertain to.
+-> Labels may include a "for" attribute.
+-> The value of the "for" attribute should be the same as the value of the "id" attribute on the form control the label corresponds to.
+-> Matching up the "for" and "id" attribute values ties the two elements togther, allowing users to click on the <label> element to bring to focus the proper form control.
+-> If desired, the <label> element may wrap form controls such as radio buttons or check boxes.
+Doing so, allows omission of the "for" and "id" attributes.
+
+Example
+<label>
+  <input type="radio" name="day" value="Friday" checked> Friday
+</label>
+<label>
+  <input type="radio" name="day" value="Saturday"> Saturday
+</label>
+<label>
+  <input type="radio" name="day" value="Sunday"> Sunday
+</label
+
+FieldSet
+-> Normally group form controls and labels into organized sections.
+-> Much like <section> and other structural elements, the <fieldset> is a block level element that wraps related elements,
+specifically within a <form> element for better organization.
+-> Fieldset by default include a border outline which can be modified using CSS.
+
+Legend
+-> Provides a caption/ heading for the <fieldset> element.
+-> The legend element wraps text describing the form controls that fall within the fieldset.
+
+Example
+<fieldset>
+  <legend>Login</legend>
+  <label>
+    Username
+    <input type="text" name="username">
+  </label>
+  <label>
+    Password
+    <input type="text" name="password">
+  </label>
+</fieldset>
+
+Form and Input Attributes
+-> To accomodate all of the different form, input and control elements, there are a number of attributes and corresponding values;
+
+a. Disabled
+-> The "disabled" boolean attribute turns off an element/ control that is not available for interaction / input.
+-> Elements that are disabled will not send any value to the server for form processing.
+-> Applying the "disabled" boolean attribute to a fieldset element will disable all of the form controls within the fieldset.
+-> If the type attribute has a hidden value, the hidden "boolean" attribute is ignored.
+
+b. Placeholder
+-> Provides a "hint" or a "tip" within the form control of an <input> or <textarea> element that disappears once the control is clicked in or gains focus.
+-> This is used to give users further information on how the form input should be filled e.g. the email address format to use.
+
+c. Required
+-> The "required" HTML5 Boolean attribute enforces that an element/ form controls must contain value upon being submitted to the server.
+-> Should an element/ form control not have a value, then an error message will be displayed requesting the user to complete the required field.
+-> Currently, error message styles are controlled by the browser and thus cannot be styled with CSS.
+-> Invalid elements and form controls on the other hand can be styled using the ":optional" and ":required" CSS pseudo-classes.
+
+Additional attributes
+* accept              * autocomplete       * autofocus
+* formaction          * formenctype        * formmethod
+* formnovalidate      * formtarget         * max
+* maxlength           * min                * pattern
+* readonly            * selectionDirection * step
+
+

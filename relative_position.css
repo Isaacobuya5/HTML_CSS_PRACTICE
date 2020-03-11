@@ -1,0 +1,25 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+  position: relative;
+  left: 20px;
+  top: 20px;
+}
+
+.red {
+  background-color: red;
+}

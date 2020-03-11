@@ -1,0 +1,64 @@
+HTML Overview
+Semantics
+Is the process of giving content on the page meaning and structure by using proper elements.
+- Semantic code therefore describes the value of content on a page regardless of style or appearnce of that content.
+- Benefits of using semantics
+a. enabling computers, screen readers, search engines and other devices to adequately read and understand the content of a web page.
+
+<div> versus <span>
+-> <div> and <span> are HTML elements that that act as containers solely for styling purposes.
+- The do not come with any overarching meaning or semantic value.
+-> Paragraphs <p> are semantic in that content wrapped within it is known and understood as a paragraph.
+-> Both <div> and <span> however are useful in that they give us ability to apply targetted styles to a contained set of content.
+
+<div>; => is a block level element that is commonly used to identify large groupings of content and that helps to build a website's layout and design.
+<span> however is an inline-level element commonly used to identify smaller groupings of text within a block-level element.
+
+Block vs Inline Elements
+*Block-level; begin on a new line, stacking one on top of the other., and occupy any available width.
+- These elements may be nested inside one another and may wrap inline-level elements.
+
+Inline-level elements - fall into normal flow of a document, lining up one after the other and only maintaining width of the content.
+
+Using Text-Based Elements
+-> Headings
+* Are block-level elements.
+- They help to quickly break up content and establish hierachy and they are key identifiers for users reading a page.
+- They also help search engines to index and determine the content on a page.
+
+Bold text using <strong> and <b>
+<strong> is used to give strong importance to text thus the most popular.
+<b> - semantically means to stylistically offset text, which isn't always the best choice for text deserving prominent attention.
+
+<em> - is used to semantically place a stressed emphasis on text thus most popular option.
+<i> - used to convey text in alternative voice or tone.
+
+Structural elements
+Whereas text-based elements identify headings and paragraphs, structural elements identify groupings of contents such as headers, articles, footers etc.
+
+<div> were traditionally used to build structure for websites, however they have no semantic value thus
+HTML5 introduced new structural elements.
+<header> <nav> <article>, <section>, <aside>, and <footer> elements.
+- All these elements are intended to give meaning to the organization of our pages and improve our structural semantics.
+
+<header> is used to identify top of a page, article, section or other segment of a page. - may include a heading, introductory text and even navigation.
+
+Navigation
+-> <nav> identifies a section of major navigational links on a page.
+-> should be reserved for global navigation, table of contents, previous/ next links etc.
+
+Article
+<article> is used to identify a section of independent, self contained content that may be independently distributed or reused.
+
+Section
+<section> - is used to identify a thematic groupings of content which generally but not always includes a heading.
+- is commonly used to breakup and provide a hierachy to a page.
+
+Aside
+<aside> - holds content such as sidebars, inserts or brief explanations that tangentially related to the content sorrounding it.
+- We may think of it as an element that appears off to the left or right of a page.
+
+Footer
+<footer> - identifies the closing or end of a page, article, section, or other segment of a page.
+-> Generally should be found at the the bottom of its parent.
+

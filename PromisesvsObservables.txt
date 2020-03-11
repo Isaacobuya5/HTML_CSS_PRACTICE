@@ -1,0 +1,35 @@
+Observables - RxJS
+-> stream of events
+-> subsequent back to back events that occur in asynchronous fashion.
+-> continous strem of events happening.
+
+-> Observable therefore is a piece of code that wraps around this stream
+so that we are able to do something with the value of that piece of data at each particular event.
+
+-> Observer is a piece of code that essentially has three function calls on it;
+
+a. next: (nextValue) => {// Do something with value }, -> code that u execute whenever a new event occurs
+b. error: (error) => {// Do something with error } ; code we execute when an error occurs.,
+c. complete: () => {// Do something when finished } ; optional, execute when stream is finished.
+-> E.g after getting five pieces of data from backend and we don't need any more we can stop our server and stop listening to any data.
+-> The above happens through subscription.
+-> Subscription a way for us to tie  our Observer using a listener to our Observer's stream of events(Observable). 
+-> Observable can have many different listeners.
+
+Using Promise to fetch from firebase
+
+-> Example
+const CollectionRef = firestore.collection('collections');
+// get() makes an API call to fetch data associated with a particular reference
+collectionRef.get().then(snapshot => {
+ const collectionMap = convertCollectionsSnapshotToMap(snapshot);
+      updateCollections(collectionMap);
+      this.setState({ loading: false });
+    });
+});
+
+Using fetch to get data from the database
+
+fetch('
+
+

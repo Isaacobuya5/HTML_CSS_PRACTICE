@@ -1,0 +1,203 @@
+Setting Background and Gradients
+-> Backgrounds have a significant impact on the design of a website.
+-> They help create a site's look and feel, establish groupings, and assign priority and they have
+a considerable influence on a website's usability.
+
+-> Within CSS, element backgrounds can be a  * solid color, an image,a gradient or a combination of these.
+
+Adding a Background Color
+-> We use *background or *background-color property.
+-> *background -> accepts colors and images in shorthand form.
+-> * background-color property is used strictly for setting solid background colors.
+
+->We can specify values for background-color as * hexadecimal codes, RGB, RGBa, HSL and HSLa values.
+-> Generally we use RGBa or HSLa values for transparencies.
+
+Transparent Backgrounds
+=> When using an RGBa or HSLa values as a transparent background color, it is a good idea to provide a fallback color too
+because not all browsers recorgnize RGBa or HSLa values.
+-> Problem experienced mostly with Internet Explorer 8.
+-> Solution of this is to use two background-color properties within a single rule set.
+-> The first background-color property will use a "safe" background color such as *hexadecimal  value and the second
+background-color property will use an RGBa or HSLa value.
+
+div {
+  background-color: #b2b2b2;
+  background-color: rgba(0, 0, 0, .3)
+}
+
+Adding a Background Image
+-> We can use shorthand "background" or "background-image" to property to add a background image to a website.
+-> No matter the property that we use, there must be an image source identified using a "url()" function.
+-> The url() function value will be the background image's path and  familiar rules for creating hyperlink paths apply here.
+
+div {
+   background-color: url("alert.png");
+}
+
+Adding a background image solely using a url value can provide undesirable results, as by default the background
+image will repeat horizontally and vertically from the top left of the given element to fill up the element's background.
+
+-> We can use "background-repeat" and "background-position" properties to control how or even whether the image repeates.
+
+Background Repeate
+=> The "background-repeat" property may be used to change the direction in which a background image is repeated if repeated at all.
+-> It accepts 4 values;
+a. repeate -> (default) repeates image both vertically and horizontally. 
+b. repeat-x -> will repeat the background image horizontally.
+c. repeat-y -> will repeat the background image vertically.
+d. no-repeat -> image does not repeate at all.
+
+Background Position
+-> By default background images are postioned at the left top corner of an element.
+-> Using * background-position property allows us to control exactly where the background image is placed relative to that corner.
+-> background-position property requires two values: a horizontal offset i.e. the first value and a vertical offset i.e. the second value.
+-> If only one value is specified, that valoue is used for the horizontal offset and the vertical offset will default to 50%.
+
+-> To set a background position, we can use the * top, * right, * bottom, * left and * center keywords, pixels,
+percentages or any length measurement.
+-> Keywords and percentages work similarly
+ left top -> (0,0)
+ right top -> 100% 0
+ left bottom -> 0 100%
+ right bottom -> 100% 100%
+
+Shorthand background Image values
+-> background-color, background-image, background-position and background-repeat may be rolled up into a "shorthand" value for the
+"background" property alone.
+-> The order of these properties varies but common;
+background: background-color, background-image, background-position, background-repeat.
+
+Example;
+background: #67b11c url("tick.png") 20px 50% no-repeat;
+
+Designing Gradient Backgrounds
+NOTE; Gradient backgrounds do not work in legacy browsers, but are supported by all modern browsers.
+
+-> Within CSS, gradient backgrounds  are treated as background images.
+-> We can create a background gradient using the *background or *background-image properties.
+-> The property value for a gradient background varies depending on what type of gradient we would like i.e. *LINEAR or RADIAL.
+
+NOTE;
+Consider adding vendor prefixes for the best support.
+
+Linear Gradient Background
+-> Before, designers and developers have been cutting up gradient image files created using image-processing software
+and using them as LINEAR gradient backgrounds on elements.
+-> Fortunately, linear gradient backgrounds can now be specified within CSS.
+-> Thus if a color needs changing, there is no need to reproduce and recut an image and upload it to a server.
+Example
+div {
+  background: #466368;
+  background: -webkit-linear-gradient(#648880, #293f50);
+  background:    -moz-linear-gradient(#648880, #293f50);
+  background:         linear-gradient(#648880, #293f50);
+}
+
+
+Linear gradients are identified by using the * linear-gradient() function within the background or background-image property.
+-> It must include two color values i.e. * beginning color value and ending color value.
+-> The browser then handles the transition between the two colors.
+-> Before any gradient backgrounds are identified, we will put in a default "background" property with a solid color -> as a fallback should a browser 
+not support gradient backgrounds.
+
+Changing the Direction of a Gradient Background.
+-> By default, linear gradient backgrounds normally move from top to the bottom of an element,
+transitioning moothly between the first color value and the second.
+-> This direction however may be changed with the use of keywords or a degree value stated before any color values.
+
+-> When we use a diagonal gradient on an element that isn't exactly a square , the background gradient will not proceed
+directly from one corner to the other.
+-> Instead, the gradient will identify the absolute center of the element , place anchors in the perpendicular corners
+from where it should progress and then move to the general direction of the corner stated with the value..
+-> These corners the gradient moves towards are normally called "magic corners" as they are not absolute.
+
+Radial Gradient Background
+-> While linear gradient is perfect for a gradient moving from one direction to the other, often the need for a radial gradient arises.
+-> It works almost similar to the linear gradients, however instead of using linear-gradient() function as in the case of linear-gradient, with radial-gradient, we normally
+use "radial-gradient function()".
+-> Radial gradients work from the inside to the outside of an element.
+-> Thus the first color within the radial-gradient() function will sit in the absolute center of an element, and the send will sit on the outside of an element.
+-> The browser will then create transitions between the two colors.
+
+Gradient Color Stops
+-> At a minimum, gradient backgrounds will transition from one color to another, however
+we may add multiple colors to a gradient and have the browser transition between all of them.
+-> To achieve this, we will add color stops to the given gradient function with commas separating each color stop from the next.
+-> By default, a browser will position every color stop an equal distance from the next, however, if more control is needed, a location along the gradient
+may be identified for each color stop.
+-> The location should be declared as length value and should fall after the color value.
+
+Example
+div {
+  background: #648880;
+  background: linear-gradient(to right, #f6f1d3, #648880 85%, #293f50);
+}
+
+// Unless specified otherwise, the first color stop will be positioned at 0%and the last color stop will be positioned at 100%.
+
+Using Multiple Background Images
+-> With CSS3, we can now have more than one background image on an element by comma-separating multiple background values within  a "background" or "background-image" property.
+-> The background image value that comes first will be the foremost background image and the background image listed last will be the rearmost background image.
+-> Any value between the first and the last will reside within the middle ground accordingly.
+
+Example
+div {
+  background:  url("foreground.png") 0 0 no-repeat, url("middle-ground.png") 0 0 no-repeat, url("background.png") 0 0 no-repeat;
+}
+
+Exploring New Background Properties
+-> Along with the gradient backgrounds, CSS3 has also introduced new background properties.
+* background-size
+* background-clip
+* background-origin
+
+a. CSS Background Size
+-> The background-size property allows us to change the size of a background-image.
+-> The property accepts a few different values including length and keyword values.
+-> When using the "length" values, we can specify the wisth and height value by using two space-separeted values.
+* first value = width of the background-image.
+* second-value = height of the background-image.
+
+NOTE;
+Percentages are always in relation to the element size and not the background-image's original size.
+Consequently, setting a "background-size" property with a 100% width will make the background image occupy
+a full width of the element.
+-> If the second value is not identified after the width, the height value will be automatically set to preserve the
+aspect ratio of the background image.
+-> The keyword "auto" may be used as either the width or the height value to preserve the aspect ratio of the background image.
+
+Example
+div {
+  background: url("shay.jpg") 0 0 no-repeat;
+  background-size: auto 75%; // setting width of background-image as 75% while maintaining the aspect ratio.
+  border: 2px dashed #9799a7;
+  height: 240px;
+  width: 200px;
+}
+
+Setting "background-size" width keywords
+-> "cover" keyword value specifies that the background-image will be resized to completely cover an element's width and height.
+-> The background-image original aspect-ratio will be preserved, yet the image will "stretch" or "shrink" as necessary to cover an entire element.
+-> Often when using the "cover" keyword value, part of the background image is cut off in order for the image to occupy the full available space of the element.
+
+b. "contain" keyword value, on the other specifies that the background image will be resized to reside entirely contained within an element's width and height.
+-> In doing so the background-image's original spect ratio will be preserved, but the image will stretch or shrink as necessary to remain within the width and height of the element.
+-> In contrast with the "cover" keyword value, the contain keyword value will always show the full background image, however sometimes it will not occupy the full available space of the element.
+
+* Both the "cover" and "contain" keyword values may result in slightly distorted background images particularly when images are stretched beyond their original dimensions.
+
+CSS Background Clip && Background Origin
+-> "background-clip" property specifies the surface area a background image will cover.
+-> "background-origin" property specifies where the background-position should originate.
+
+-> The introduction of these two new properties corresponds with the introduction of the three new keywords values i.e. "border-box", "padding-box" and "content-box".
+-> Thus each of these value may be used for the "background-clip" and the "background-origin" properties.
+
+-> The "background-clip" property value is set to "border-box" by a default, allowing the background-image to extend into the same area as any border.
+-> Meanwhile, the background-origin property is set to "padding-box" by default allowing the beggining of a background image to extend into the padding of an element.
+
+
+
+
+

@@ -1,0 +1,124 @@
+Lecture 5
+Positioning Content
+* One of the best things about CSS is that it gives us the ability to POSITION content and elements
+on a page in nearly any imaginative way thus bringing structure  to our designs and helping make content 
+more digestible.
+
+-> Different types of positioning techniques within CSS, and each has its own application
+
+Creating Reusable layouts and uniquely positioning one-off elements.
+
+Positioning with floats
+* float property allows us to take an element, remove from the normal flow of a page and position it to the left or right 
+of its parent element.
+-> All other elements on the page will then flow around the floated element.
+-> For example an <img> floated to the side of a few paragraphs will allow  the paragraphs to wrap around the image as necessary.
+
+-> When float property is used on multiple elements at the same time, it provides the ability to create a layout by floating elements 
+directly next to or opposite each other as seen in multiple column layout.
+
+ -> float property values include;
+* left and right -> which allows elements to be floated to the left or right of their parent element.
+Example;
+img {
+  float: left;
+}
+
+->When an element is floated, it will float all the way to the edge of its parent element. If there isn't
+a parent element, the floated element will then float all the way to the edge of the page.
+-> When we float an element, we take it out of the normal flow of HTML document, this causes the WIDTH of that element to default to the width of content
+within it.
+-> ABOVE behaviour is sometimes not desired, -> can be corrected by adding a fixed width property value to each column.
+-> Additionally, to prevent floated elements from touching each other, causing the content of one to sit directly next to the content of the other,
+we can use the margin property to create space between elements.
+
+NOTE; Floats may change an Element's Display value
+-> When floating an element, it is important to recorgnize that an element is removed from the normal flow of a page and that may change an element's default
+"display" value.
+* The float usually relies on an element having a display value of block and may alter an element's default display value if it's not already displayed as a block-level
+element.
+-> Thus as we float elements, we must keep an eye on their display property values.
+
+CREATING A THREE COLUMN LAYOUT USING FLOATS
+-> To create a three column layout using floats, we must change our approach by placing all the three columns to the "left", adjust the width of the columns to account for additiaonal columns
+and to get them sit one next to the other.
+
+Clearing and Containing floats
+The "float" property was originally designed to allow content wrap around images.
+-> An image could be floated, and all the content sorrounding that image could the naturally flow around it.
+-> Thus it was never intended to be used for layout and positioning purposes -> thus comes with few disadvantages;
+a. Proper styles will not render on an element that is sitting next to or is a parent of a floated element.
+- When an element is floated, it is taken out of normal flow of HTML page and as a result, the styles of elements around that floated element can be negatively impacted.
+b. Often margin and padding properties values aren't interpreted correctly thereby causing them to blend into the floated element; other properties can be affected too.
+c. Sometimes, unwanted content begins to wrap around a floated element.
+-> Removing an element from the flow of the document allows all the elements around the floated element to wrap and consume any vailable space around the floated element.
+
+=> To PREVENT content from wrapping around floated elements, we need to CLEAR or contain those floats and return page to its normal flow.
+
+A. Clearing Floats
+-> Accomplished using the "clear" property.
+-> Possible values; * left // clear left floats
+                    * right // clear right floats
+                    * both // clear both left and right floats
+-> It is often desirable to apply the "clear" property to an element appearing after the floated elements so as to return th page to its normal flow.
+
+B. Containing Floats
+-> Rather than clearing floats, another option is to contain floats.
+-> Also produces similar result as "clear" however it does help to ensure that all of our styles will be rendered properly.
+
+To contain floats, the floated elements must reside within a parent element.
+-> The parent element then acts as a container , leaving the flow of the document completely normal outside of it.
+-> The CSS for that parent element may be represented by a group class below
+
+.group:before, // usually dynamically generated before and after the element
+.group:after {
+  content: ""; // have no content
+  display: table; //are displayed as table level elements
+}
+.group:after {
+  clear: both; // clears any floats within element with class group
+}
+.group {
+  clear: both; // clears any float within an element that may exists before it
+  *zoom: 1;
+}
+
+Exaplanation
+-> Essentially, CSS is clearing any floated elements within the element with the class of "group" and returning the flow of the document back to normal.
+-> * :before and :after pseudo-elements are dynamically generated elements above and below the element with the class of group.
+-> Those elemnts do not include any content and are displayed as table-level elements much like block-level elements.
+-> The dynamically generated element after the element with the class of group is clearing the floats within the element with the class of group much like clear from before.
+-> The element with the class of "group" itself also clears any floats that may appear above it, in case a left or right float may exist.
+
+With this in mind, for the two column layout, we could wrap the <section> and <aside> within a parent of class say "group" and then contain the floats within that parent.
+As shown below;
+
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+.group {
+  clear: both;
+  *zoom: 1;
+}
+section {
+  float: left;
+  margin: 0 1.5%;
+  width: 63%;
+}
+aside {
+  float: right;
+  margin: 0 1.5%;
+  width: 30%;
+}
+
+The technique above is known as "clearfix" and can often be found in other websites with
+the class name of clearfix or "cf".
+
+
+
+

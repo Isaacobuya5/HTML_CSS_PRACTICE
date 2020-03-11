@@ -1,0 +1,35 @@
+Uniquely Positioning Elements
+Floats which remove an element from the flow of a page often produce unwanted results
+as sorrounding elements floow around floated element.
+-> Inline-block, unless we are creating columns can be fairly akward to get into proper position.
+For these situations, we can use the "position" property in connection with "box offset" properties.
+
+-> The "position" property identifies how an element is positioned on a page and whether or not it will
+appear within the normal flow of a document.
+-> This is used in conjuction with the box "off-set" properties;
+* top
+* right
+* bottom
+* left
+-> which identifies exactly where an element will be positioned by moving elements in a number of different
+directions.
+-> By DEFAULT, every element has a position value of static which means that it exists in a normal flow of a document and doesn't accept any
+box offset properties.
+-> The "static" value is mostly overwritten with a "relative" or "absolute" value.
+
+A. Relative Positioning
+* The "relative" value for the position property allows elements to appear within the normal flow of a page,
+leaving space for an element as intended while not allowing other elements to flow around it.
+* It also allows an element's "display" position to be modified with the "box offset" properties.
+-> Relative positioning therefore preserve the originial position of the element and other elements are not allowed to move into this space.
+Additionally, box offset properties reposition the element allowing it to move top, left, right and bottom.
+
+-> "box offset" properties identify where an element will be moved relative to its original position.
+
+B. Absolute Positioning
+-> The absolute value for the "position" property is different from the "relative" value in that an element with value of "position" will not appear within the normal
+flow of a document and its original space and position of the absolutely positioned element will not be preserved.
+
+->* Absolutely positioned elements are moved in relation to their closest relatively positioned parent element.
+-> In case a relatively positioned parent element does not exist, the absolutely positioned element will be positioned
+in relation to the <body> element.

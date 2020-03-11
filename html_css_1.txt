@@ -1,0 +1,288 @@
+HTML AND CSS
+HTML (HyperText Markup Language) - gives the content structure and meaning by defining that content as for example heading headings, paragraphs or images.
+CSS (Cascading Style Sheets - is a presentation language created to style appearance of content using the appearance of content such as fonts or colors.
+
+HTML Terms
+- Elements; are designators that define the structure and content of objects within a page.
+Example elements 
+* <h1>.....<h6>
+* <p>, <a>, <div>, <span>, <strong> and <em>
+
+Tags
+- The use of less-than and greater than angle brackets sorrounding an element creates what is known as a TAG.
+
+Attributes - are properties that are used to provide additional information about an element.
+Example attributes;
+* id attribute - uniquely identifies an element
+*  class attribute - classifies an element.
+* src attribute - specifies a source for an embeddable content.
+* href attribute - provides a hyperlink refernce to a linked resource.
+
+Generally, attributes include a name and a value
+
+Structure of an HTML Page
+<!DOCTYPE html> - Document Type Declaration 
+-> Informs web browsers which version of HTML is being used and is placed at the very beggining of the HTML document.
+<html> -> signifies the biggining of a document.
+<head> -> Identifies the top of the document including any metadata (accompanying information about the page).
+
+Self enclosing Elements - i.e. elements that don't include a closing tag
+Examples;
+* <br> <img> <meta> <wbr> <embed> <input> <param>
+
+Understanding CSS Terminologies
+*Selectors -> designates which element(s) within our HTML to target and apply styles such as color, size and position.
+Selectors may include a combination of different qualifiers to select unique elements, all depending on how specific we wish to be.
+
+-> Selectors generally target an attribute value such as an id or a class value or target the type of element such as <h1> or <p>
+-> Properties - property usually determines the styles that will be applied to that element.
+Example include , -> background, color, font-size, height and width
+
+Values -> associates a particular behaviour for a given property.
+
+Working with Selectors
+a. Type selectors; target elements by their element type. For example, if we wish to target all divisions, we would use a type selector of <div>
+div {
+color: blue;
+}
+
+b. Class selectors - allow us to select an element based on the element's class attribute.
+--> They are a little more specific than type selectors as they select a particular group of elements rather than all elements of one type.
+Within CSS, classes are denoted by a leading dot (.) period followed by the class attribute value.
+
+Example
+.awesome {
+display: block;
+widht: 20px;
+}
+
+c. ID Selectors
+Are more precise than class selectors as they target only one unique element at a time.
+ID selectors use an element's id attribute value as a selector.
+ID attributes can only be used once in a page.
+
+-> Within CSS, ID selectors are denoted by a leading hash sign #, followed by the id attribute value.
+
+#header {
+...,...;
+}
+
+Referencing CSS
+- Write all our CSS in an external style sheet and then reference that CSS file within the header of our HTML.
+- This allows us to use the same styles across an entire website and quickly make changes sitewide.
+
+CSS Resets
+- Every browser has default styles for displaying different html elements.
+- Usually different across every browser.
+- Using CSS Resets ensure cross-browser compatibility.
+- CSS Resets take every common HTML elements with a predifined style and provide one unified style for all browsers.
+- These resets generally involve removing any sizing, margins, paddings or additional styles and toning these values down.
+
+Because CSS cascades from top to bottom - our reset needs to be at the very top of our stylesheet.
+- Doing so ensures that our styles are read first and that all different web browsers are working from a common baseline.
+
+Different resets are available for use;
+* Eric Meyer's reset
+* Normalize.css
+
+Combining Selectors
+* Suppose we want to style paragraphs that reside within a div of class "hotdog" expect for paragraph with class "mustard", we want
+to set a different style.
+Example;
+
+HTML
+<div class="hotdog">
+<p> This is my first text </p>
+<p class="mustard"> This is my distinct text</p>
+</div>
+
+CSS
+.hotdog p {
+background: brown;
+}
+
+.hotdog p.mustard {
+background: yellow;
+}
+
+* When selectors are combined, they should be read from right to left.
+* The selector farthest to the right, directly before the opening curly bracket is the key selector.
+* It identifies exactly which element the styles will be applied to.
+* Any selector to the left of the key selector will serve as a prequalifier.
+
+Specificity within combined selectors
+-> When selectors are combined, so are the specificity weights of the individual selectors.
+-> These combined specificity weights can be calculated by counting each different type of selector within a combined selector.
+
+The first column represents ID 1-0-0
+Second column represents CLASS 0-1-0
+Third column represents TYPE 0-0-1
+
+Thus; .hotdog p.mustard {
+}
+.hotdog p {} - has combined specificity of 0-1-1
+combined will be -> from left to right 0-1-0 + 0-0-1 + 0-1-0 = 0-2-1
+Means 0 - id selector
+      2 - class selector
+      1 - type selector
+
+Thus it has a higher specificity than 0-1-1 and therefore will take presedence in the cascade.
+
+Layering Styles with Multiple classes
+-> One way of keeping our specificity weights low is by sharing similar styles from element to element.
+-> Elements within HTML can have more than one class attribute value so as long as each value is space separated.
+-> This allows us to place certain styles on all elements of one sort while placing other styles only on specific element of tht sort.
+
+-> We can therefore tie styles we want to continually reuse to one class  and layer additional styles from another class.
+* Example, we want all our buttons to have a font size of 16px but we want background color to change depending on where they are used.
+
+COMMON CSS AND PROPERTY VALUES
+Colors;
+-> All color values within CSS are defined on an sRGB (standard red, green and blue) color space.
+-> Colors within this space are formed by mixing red, green and blue color channels together, thus creating millions of colors.
+
+-> Currently, there exists four primary ways of representing colors
+a. keywords - are names such as red, green and blue that map to a given color
+While they are simple in nature, they provide limited options and thus are not the most popular color choice.
+b. hexadecimal notations.
+c. RGB
+d. HSL values
+Reference -> https://www.w3.org/TR/css-color-3/
+
+Hexadecimal Colors
+-> Consists of a pound or a hash (#) followed by a three-or-six character figure.
+-> The figures use the numbers 0 through 9 and the letters "a" through "f", upper or lowercase.
+-> These values map to the red, green and blue color channels.
+-> In SIX-CHARACTER-NOTATION,;
+ * first and second character = red
+ * third and fourth = green
+* fifth and sixth = blue
+
+In THREE-CHARACTER-NOTATION;
+* first -> 
+* second -> green
+* third -> blue
+
+If in SIX character notation the first two characters are a matching pair,the second two are a matching pair and the last two are also matching,
+the the SIX-CHARACTER figure may be shortened to a three character figure.
+
+Example, a shade of orange written as #ff 66 00 can be rewritten as #f 6 0
+
+The character pairs are obtained by converting 0 through to 255 into a base-16 or hexadecimal format.
+0 => black
+f => white
+
+- There are 16 options for every character in a hexadecimal color
+0 - 9 a - f
+-> With the characters grouped in pairs, there are 256 color options per pair
+i.e. 16 * 16
+-> And with three groups, we have 256 cubed = 16.7 million.
+
+Adobe Kuler - free application that provides a color wheel to help us find any color and it's corresponding color value.
+
+RGB and RGBa Colors
+-> RGB color values are normally stated using the rgb() function which stands for red, green and blue.
+- The function accepts three comma-separated values, each of which is an integer from 0 - 255.
+
+-> A value of 0 would be pure black, a value of 255 would be pure white.
+-> For example, maroon would be,
+rgb(128, 0, 0)
+
+* RGB color values may also include an "alpha" or "transparency", channel by using rgba() function.
+-> The rgba() requires a fourth value which must be a number between 0 and 1 including decimals.
+-> A value 0 creates a fully transparent color meaning it would be invissible.
+-> And value 1 creates a fully opaque color.
+-> Any decimal between 0 and 1 creates a semi-transparent color. For example, if we wanted our shade of orange to appear 50% opaque,
+we would use an RGBa color value of rgba(255, 102, 0, .5);
+
+HSL and HSLa Colors
+-> HSL color values are stated using the hsl() function -> hue, saturation and lightness.
+-> Within the parentheses, the function accepts three comma separated values much like rgb().
+
+* hue -> unitless number from 0 to 360 representing the color wheel.
+identifies the degree of a color on the color wheel.
+* saturation - % value from 0% to 100%, identifies how saturated with color the hue is
+0% being grayscale and 100% being fully saturated.
+* lightness - % value from 0% to 100%, identifies how dark or light the hue value is
+0% - completely black and 100% - completely white.
+
+-> HSL color values like RGBa may also include an alpha or transparency channel with the use of the hsla(), with a 
+fourth value  (alpha/opacity) between 0 and 1 including decimals.
+
+-> For the time being, hexadecimal color values remain the most popular as they are widely supported, though when an alpha channel for transparency is
+needed, RGBa values are preffered.
+
+LENGTH
+-> Length values within CSS are similar to colors in that there are a handful of different types of values
+for length all of which serve distinct purposes.
+-> Length values come in two different forms - absolute and relative;
+-> Each uses different units of measurement.
+
+Absolute Lengths
+-> Are the simplest as they are fixed to physical measurement such as inches, 
+centimeters or millimeters.
+-> The most popular absolute unit of measurement is known as "pixel" and is represented by the px unit notation.
+
+Pixels
+-> Is equivalent to 1/96th of an inch thus ; 1 inch = 96 pixels.
+-> The exact measurement of a pixel may however vary between high density and low-density viewing devices.
+
+-> With the changing landscape of viewing devices and their varying screen sizes, pixels have lost some of their popularity.
+-> As an absolute unit of measurement, they don't provide too much flexibility.
+
+Relative Lengths
+-> Are not fixed but rely on the length of another measurement.
+
+a. Percentages
+- Most popular relative values.
+-> Are defined in relation to the length of another object.
+-> Thus to set the width of an element to 50%, we have to know the width of its
+parent element. and then identify 50% of the parent's element width.
+-> Thus the 50% is calculated relative to the width of the element's parent.
+-> Percentages are therefore extremely useful when setting the height and width of elements and building out a web pages layout.
+
+b. Em
+-> Represented by the em unit notation and its length is calculated based on element's font size.
+-> Thus if an element has a font size of 14px and width set to 5em, the width would be equal to 70px i.e. (14 * 5).
+
+-> When font-size is not explicitely stated for an element, the em unit will be relative to the font-size of the closest parent element with a stated font-size.
+
+=> The em unit is often used for styling text, including font sizes as well as spacing around text i.e. MARGINS AND PADDINGS.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

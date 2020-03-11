@@ -1,0 +1,215 @@
+Adding Media
+-> HTML provides a way to embed rich media in the form of;
+  * images
+  * audio tracks
+  * videos
+  * content from another web page in the form of an INLINE FRAME.
+-> Browser support for images and inline frames has generally been pretty good.
+
+Adding Images
+-> We use an "<img>" inline element to add images into a web page.
+-> The <img> element is a "self-containing" i.e. empty element - doesn't wrap any other element and it exists as a single tag.
+-> For it to work, a "src" - attribute and value must be included to specify the source of the image.
+-> The "src" attribute value is a URL, typically relative to the server where the website is hosted.
+-> In conjuction with the "src" attribute, the "alt" attribute which describes the contents of an image should be applied.
+-> The "alt" attribute value is normally picked up by search engines and assistive technologies to help convey the PURPOSE of an image.
+-> The "alt" text will be displayed in place of an image if for some reason the image is not available.
+
+Example
+<img src="dog.jpg" alt="A black, brown, and white dog wearing a kerchief">
+
+Supported image formats
+-> Images usually come in a variety of different file formats and each browser may/ may not support all the formats.
+-> * gif, jpg and png are the most commonly supported image formats.
+-> * jpg and png are the widely used formats today.
+-> * jpg => provides quality images with high color counts while maintaining a descent file size, ideal for faster load times.
+-> * png => is great for images with transparencies or lower color counts.
+-> jpg most commonly used for photographs while png images are widely used for icons or background patterns.
+
+Ways of Sizing Images
+-> There are a number of options for sizing images so that they can work well on a page;
+a. use the "width" and "height"  attributes directly within the <img> tag in HTML.
+b. use the "width" and "height" properties within CSS.
+-> When both HTML attributes and CSS properties are used, the CSS properties take presedence over HTML attributes.
+-> Specifying either width or height will cause the other dimension to adjust automatically to maintain the aspect ratio of the image.
+-> Setting both width and height will also work however, doing so may break the aspect ratio of an image, causing it to appear distorted.
+
+Positioning Images
+-> A number of approaches exist for positioning images on a web.
+-> By default, images are positioned as inline-level elements,
+-> however, their positions may be changed using CSS, specifically the * float, display and box model properties including padding, border and margin.
+-> Leaving images untouched in their default positioning i.e. inline level element isn't too much common.
+-> Often images are displayed as * block-level elements or are floated flush to one side.
+
+Block Positioning Images
+-> Adding the "display" property to an image and setting it's value to "block", forces the image to be a block level element.
+-> This makes the image appear on its own line, allowing the sorrounding content to be positioned above and below the image.
+
+Positioning Images Flush Left or Right.
+-> We may want the image to appear on the left or right of its containing element while all the other content wraps around the image as necessary.
+-> To do this, we will set its float property value to either left or right.
+-> When we float an image, all other content will align directly against it. Additionally, we can use the * padding, * border and * background properties to build
+a frame for the image, if desired.
+
+Adding Audio
+-> HTML5 provides a quick and easy way to add audio files to a website by way of the <audio> element.
+-> As with the <img> element, the audio element accepts a source URL specified by the "src" attribute.
+-> However an <audio> element requires both opening and closing tags as opposed to the <img> element.
+Example
+<audio src="jazz.ogg"></audio>
+
+Audio attributes
+Several other attributes may accompany the "src" attribute on the <audio> element.
+-> Most popular include, 
+  * autoplay,
+  * controls
+  * loop
+-> and are all Boolean attributes.
+-> As boolean values, they don't require a stated value. Instead, when each is present on the <audio> element, its value will
+be set to true and the <audio> element will behave accordingly.
+
+NOTE;
+-> By default, the <audio> element isn't displayed on a page.
+-> * If the <autoplay> Boolean attribute is set, nothing will appear on the page but the audio file will play automatically upon loading.
+
+Example
+<audio src="jazz.ogg" autoplay></audio>
+
+* To display an <audio> element on a page, the "controls" boolean attribute is necessary.
+-> When it is applied to the <audio> element, the controls Boolean attribute will display a browsers "default audio controls" including - pause, seek and volume controls.
+
+Example;
+<audio src="jazz.ogg" controls></audio>
+
+-> * setting the "loop" attribute on <audio> element will cause an audio file to repeate continually from the beggining to an end.
+-> * "preload" attribute for the audio element helps identify what, if any information about the audio file  should be loaded before the clip is played.
+-> Accepts three values,
+    * none,
+    * auto
+    * metadata
+-> The "none" value won't preload any information about an audio file
+-> The "auto" value will preload all information about an audio file.
+-> The "metadata" value sits in between the "none" and "auto" values, as it will preload any available metadata information about an audio file
+such as the clip's length but not all information.
+-> When the preload attribute isn't present on the <audio> element, all information about an audio file is loaded, as if the value was set to auto.
+-> Due to this, using the preload attribute with a value of metadata or none is good when an audio file isn't essential to a page.
+-> It will help conserve bandwidth and allows pages to load faster.
+
+Audio Fallbacks and Multiple Sources
+-> At the moment, different browsers support different audio file formats.
+-> Most popular of these formats are;
+    * ogg3,
+    * mp3,
+    * wav
+-> For the best browser support, we will need to use a handful of audio fallbacks which will be included inside an <audio> elements opening and closing tag.
+
+To begin, we will remove the "src" attribute from the audio element and instead, we will use the "<source>"  element with an "src" attribute nested inside the "audio" element to define a new source.
+-> This allows us to  list one audio file format after the other.
+-> We will the use the "type" attribute to quickly help the browser identify which audio types are available.
+-> When a browser recorginizes an audio file format it will load that file and ignore others.
+
+-> Because it was introduced in HTML5, some browsers may not support the <audio> element. In this case, we can provide a link to download the audio file after any <source> within the <audio> element.
+
+Example
+<audio controls>
+  <source src="jazz.ogg" type="audio/ogg">
+  <source src="jazz.mp3" type="audio/mpeg">
+  <source src="jazz.wav" type="audio/wav">
+  Please <a href="jazz.mp3" download>download</a> the audio file.
+</audio
+
+Adding Video
+-> Adding video to HTML5 is very similar to adding audio.
+-> We use the <video> element in place of the <audio> element.
+-> All of the same attributes (src, autoplay, controls, loop and preload) and fallbacks appear here too.
+
+-> With <audio> element, if the "controls" Boolean attribute isn't specified, the audio clip isn't displayed.
+-> With <video> element however, if the controls Boolean attribute is not specified the video will display.
+-> However, it is fairly difficult to view unless the autoplay Boolean attribute is also applied..
+-> Best practice is to include the "controls" Boolean attribute unless there is a good reason not to allow users start, stop 
+or replay the video.
+
+-> Since videos usually take up space on a page, it is reccommended to specify their dimensions which is most commonly done with "width and *height properties in CSS.
+-> Ensures that the video isn't too large, and stays within the implied layout of a page.
+-> Additionally, specifying as with images helps the browser to render the videos faster and allows it to allocate the proper space needed for the video to be displayed.
+
+Example;
+<video src="earth.ogv" controls></video>
+
+Customizing Audio and Video Controls
+=> By default, the <audio> and <video> element controls are determined by each browser independently.
+-> Depending on the design of the website however, more authority over the look and feel of the media player may be needed.
+-> If this is the case, a customized player can be bult, but it will require a little Javascript to do the work.
+-> Additionally, if a customized player uses the <img> element as a control, the value of the alt attribute should explicitely state that the image is a control and requires the proper interaction to work.
+
+Poster Attribute
+-> One additional attribute available for the <video> element is a "poster" attribute.
+-> The "poster" attribute allows us to specify an image in the form of a URL, to be shown before a video is played.
+
+Example
+<video src="earth.ogv" controls poster="earth-video-screenshot.jpg"></video>
+
+Video Fallbacks
+-> Same as audio fallback;
+
+<video controls>
+  <source src="earth.ogv" type="video/ogg">
+  <source src="earth.mp4" type="video/mp4">
+  Please <a href="earth.mp4" download>download</a> the video.
+</video>
+
+-> One additional fallback option that could be used in place of a plain text fallback is to use a Youtube or Vimeo embedded video.
+-> These video hosting websites allows us to upload our videos, provide a standard video player onto a page using inline frame.
+
+
+Adding Inline Frames
+
+-> Another way of adding a content to a page is to embed another HTML page within the current page.
+-> This is normally achieved by the use of an inline frame or <iframe> element.
+-> The <iframe> element accepts the URL of another HTML page within the src attribute value;
+-> this causes the content from the embedded HTML page to be displayed on the current page.
+-> The value of the src attribute may be a URL relative to the page the <iframe> element appears on or an absolute URL for an entirely external page.
+-> Many pages uses the <iframe> element to embedd media onto a page from an external website such as Google Maps, YouTube and others.
+* The <iframe> element has a few default styles, including inset "border" and "width" and "height".
+-> These styles can be adjusted using the "frameborder", width and height HTML attributes or by using the "border", "width" and "height" CSS properties.
+
+-> Pages referenced within the src attribute of an <iframe> element play by their own rules as they do not inherit any styles of behavior from the page that they are referenced on.
+-> Any styles applied to a page that includes an <iframe> element will not be inherited by the page referenced within the <iframe> element.
+-> Additionally, links within the page referenced within the <iframe> will open inside that frame, leaving the page that contains the <iframe> element unchanged.
+
+Semantically Identifying Figures and Captions
+-> With HTML5 also came the introduction of of the "<figure>" and "<figcaption>" elements.
+-> These elements were created to semantically markup self-contained content or media commonly with a caption.
+-> Before HTML5, this was frequently done using an ordered list. While an ordered list worked, it was not semantically correct.
+
+Figure
+-> The <figure> block element is used to identify and wrap self-contained content often in the form of a media.
+-> It may sorround;
+ * images, audio clips, videos, blocks of code, diagrams, illustrations or other self-contained media.
+
+-> More than one item of self-contained content such as multiple images or videos may be contained within <figure> element at a time
+element at a time.
+-> If the <figure> is moved from the main portion of a page to another location for example the bottom of the page, it should not disrupt the content the content or the legibility of the page.
+
+Example
+<figure>
+  <img src="dog.jpg" alt="A black, brown, and white dog wearing a kerchief">
+</figure>
+
+Figure Caption
+-> To add a caption / legend to the <figure> element, the <figcaption> element is used.
+-> It may appear at the "top of", "bottom of" or anywhere within the <figure> element , however, it may appear only once.
+-> When it used the <figcaption> element will serve as the caption for all content within the <figure> element.
+-> Additionally, the <figcaption> element may replace an <img> element's alt attribute if the content of the <figcaption> element provides a useful description of the visual content of the image.
+
+Example
+<figure>
+  <img src="dog.jpg">
+  <figcaption>A beautiful black, brown, and white hound dog wearing kerchief.</figcaption>
+</figure>
+
+
+  
+
+
+

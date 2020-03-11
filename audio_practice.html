@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice HTML5 Audio element end controls</title>
+  </head>
+  <body>
+    <div class="music">
+      <audio
+        src="./styles-conference/assets/audio/Harmonize - Niambie.mp3"
+        controls
+        preload="auto"
+      ></audio>
+      <!--To provide support of all browsers-->
+      <audio controls autoplay>
+        <source src="./styles-conference/assets/audio/Harmonize - Niambie.mp3" type="audio/mp3">
+        <source src="./styles-conference/assets/audio/Harmonize - Niambie.wav" type="audio/wav">
+        <source src="./styles-conference/assets/audio/Harmonize - Niambie.ogg" type="audio/ogg">
+        Please <a href="./styles-conference/assets/audio/Harmonize - Niambie.mp3" download>download</a> the audio file.
+      </audio>
+    </div>
+  </body>
+</html>
