@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        margin: 30px;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        background: lightgreen;
+        margin: 30px;
+      }
+      .box-1 {
+        transform-origin: 0 0; /** same as "top left" **/
+        transform: rotate(15deg);
+      }
+
+      .box-2 {
+        transform: scale(0.5);
+        transform-origin: 100% 100%; /** same as "bottom right" ***/
+      }
+
+      .box-3 {
+        transform-origin: top left;
+        transform: skewX(20deg);
+      }
+      .box-4 {
+        transform-origin: 20px 50px;
+        transform: scale(.75) translate(-10px,-10px);
+      }
+    </style>
+    <title>Changing the default (50%, 50%) transform-origin position</title>
+  </head>
+  <body>
+    <div class="box box-1">S</div>
+    <div class="box box-2">Q</div>
+    <div class="box box-3">R</div>
+    <div class="box box-4">J</div>
+  </body>
+</html>

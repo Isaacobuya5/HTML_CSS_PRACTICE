@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 50px;
+        }
+
+        h1 {
+            margin: 15px 0;
+            padding: 0;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 18px;
+        }
+        .parent {
+            width: 100px;
+            height: 100px;
+            background: teal;
+            transform: scale(1.25);
+            margin-bottom: 20px;
+        }
+        .child {
+            width: 100px;
+            height: 100px;
+            background: red;
+            text-align: center;
+            /* transform: scale(.75); */
+            transform: rotate(-45deg);
+        }
+
+        .box {
+            width: 150px;
+            height: 100px;
+            background: green;
+            margin-top: 50px;
+        }
+
+       .box1 {
+            transform: scaleX(.5);
+            margin-top: 40px;
+        }
+ 
+        .box1 {
+            transform: scaleY(1.15);
+        }
+
+        .box2 {
+            transform: scale(.5, 1.15);
+        }
+
+        .box3,
+        .box4 {
+            width: 150px;
+            height: 150px;
+            background: green;
+            margin-top: 50px;
+
+        }
+
+        .child-box {
+            width: 150px;
+            height: 150px;
+            background: red;
+            transform: translateX(50%);  
+        }
+
+        .child-box1 {
+            width: 150px;
+            height: 150px;
+            background: red;
+            /* transform: translateX(-50%);    */
+            transform: translate(-50%, -20px); 
+        }
+
+        .box5 {
+            margin-top: 40px;
+        }
+
+        .child-box3 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            transform: skewX(-10deg);
+        }
+
+        .child-box4 {
+            width: 100px;
+            height: 100px;
+            background: red;
+            transform: skewY(-10deg);
+        }
+
+        .combined-parent,
+        .combined-child {
+            width: 150px;
+            height: 150px;
+            background: blue;
+        }
+
+        .combined-child {
+            background: yellow;
+            transform: rotate(45deg) scale(.7) translate(70%) skewX(45deg);
+        }
+    </style>
+    <title>Practice 2D Transforms using CSS3</title>
+</head>
+<body>
+    <!--------TRANSFORMS---------->
+    <!-------ROTATE-->
+    <h1>ROTATE ANTICLOCKWISE 2D</h1>
+    <div class="parent">
+     <div class="child">S</div>
+    </div>
+    <hr/>
+   <!-------SCALE------------>
+   <h1>SCALE ON Y AXIS</h1>
+    <div class="box1 box">
+
+    </div>
+    <hr/>
+    <h1>SCALE ON BOTH X AND Y AXIS</h1>
+    <div class="box2 box">
+
+    </div>
+    <hr/>
+<!----------TRANSLATE x-------->
+<h1>TRANSLATE ON X AXIS POSITIVE</h1>
+    <div class="box3">
+        <div class="child-box">
+
+        </div>
+    </div>
+    <hr/>
+<!------translate y------->
+<h1>TRANSLATE ON X AXIS NEGATIVE AND Y AXIS</h1>
+    <div class="box4">
+        <div class="child-box1">
+
+        </div>
+    </div>
+<hr/>
+    <!---- we could also set translate x and y e.g. translate(x, y)-->
+
+    <!---2D skew -->
+<h1>SKEW ALONG THE X-AXIS</h1>
+<div class="parent box5">
+<div class="child-box3">
+E
+</div>
+<hr/>
+<h1>SKEW ALONG THE Y AXIS</h1>
+<div class="parent box5">
+    <div class="child-box4">
+    E
+    </div>
+<!---- We can also skew on both x and y transform: skew(5deg, -20deg);-->
+</div>
+
+<hr/>
+<h1>COMBINING MULTIPLE TRANSFORM VALUES</h1>
+<div class="combined-parent">
+<div class="combined-child"></div>
+</div>
+</body>
+</html>

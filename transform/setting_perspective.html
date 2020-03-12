@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background: lightgreen;
+        margin: 30px;
+      }
+
+      .parent {
+          perspective: 200px;
+      }
+
+      .parent > .box {
+          transform: rotateX(45deg);
+      }
+      .box-1 {
+        transform: perspective(200px) rotateX(45deg);
+      }
+
+      .another-parent {
+        border: 1px solid black;
+      }
+      .box-4 {
+          margin-left: 30px;
+          padding: 0;
+         transform:perspective(200px) scaleY(1.25) rotateX(45deg);
+      }
+
+      .box-5 {
+        margin-left: 30px;
+          padding: 0;
+         transform:perspective(200px) scale(.6) rotateY(45deg);    
+      }
+
+      .box-6 {
+        margin-left: 30px;
+          padding: 0;
+         transform:perspective(200px) rotateZ(45deg);
+      }
+
+      .box-7 {
+      transform: perspective(200px) translateZ(-60px);    
+      }
+
+      .rotate {
+        width: 100px;
+        height: 100px;
+        margin: 30px;
+         background: blue;
+         transform: perspective(200px) rotateY(45deg);
+      }
+
+      .three-d {
+          transform-style: preserve-3d;
+      }
+
+      .box-example {
+          margin: 0;
+          transform: rotateX(15deg) translateZ(20px);
+          transform-origin: 0 0;
+      }
+
+      .box-8 {
+        /* backface-visibility: hidden; */
+          transform: rotateY(180deg);
+      }
+
+    </style>
+    <title>Setting Perspective - i.e. vanishing point for a 3D image</title>
+  </head>
+  <body>
+    <div class="box box-1"></div>
+    <div class="parent">
+    <div class="box box-2"></div>
+    <div class="box box-2"></div>
+    </div>
+     <div class="another-parent">
+    <div class="box box-4">A</div>
+     </div>
+    <div class="box box-5">E</div>
+    <div class="box box-6">X</div>
+
+    <div class="box box-7">X</div>
+
+    <div class="rotate three-d">
+        <div class="box box-example">
+            A
+        </div>
+    </div>
+
+    <div class="box box-8">B</div>
+  </body>
+</html>
