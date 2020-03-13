@@ -1,0 +1,142 @@
+TRANSFORM
+-> With CSS3 came new ways to position and alter elements.
+-> Now, general layout techniques can be revisited with alternative ways to * SIZE, POSITION and CHANGE.
+-> All these new techniques are made possible by "transform" property.
+
+-> "transform" property comes in two different settings i.e. "two-dimensional" and "three-dimensional".
+-> Each of these comes with their own individual properties and values.
+
+NOTE; Browser Support for transform property isn't great but is improving everyday.
+
+Transform Syntax
+
+div {
+  -webkit-transform: scale(1.5);
+     -moz-transform: scale(1.5);
+       -o-transform: scale(1.5);
+          transform: scale(1.5);
+}
+
+-> The un-prefixed declaration comes last to overwrite the prefixed versions, 
+should a browser fully support the transform property.
+
+2D Transforms
+-> Elements may be distorted/transformed in both 2D plane or 3D plane.
+-> 2D transforms works on both the -> x (horizontal) and y (vertical) axes.
+-> 3D transforms works on both x , y as well as the z axes.
+-> These 3D transforms help define not only the length and width of an element but also the depth.
+
+2D Rotate
+-> The transform property accepts a number of different values.
+
+a. rotate
+-> Provides the ability to rotate an element from 0 to 360 degrees.
+Using a positive value will rotate an element "clockwise" while negative value will rotate an element in anti-clockwise direction.
+-> The default point of rotation of an element is the center of the element i.e. 50% 50%.
+ both horizontally and vertically.
+
+b. scale
+-> Using "scale" within the transform property allows you to change the appeared size of an element.
+-> The default scale value is 1, therefore any value between .99 and .01 makes an element appear smaller while any value greater than or equal to 1.01 makes an element appear larger.
+-> It is possible to scale only the height or width of an element using the "scaleX" and "scaleY" values.
+-> scaleX - value will scale the width of an element.
+-> scaleY - value will scale the height of an element.
+-> Use "scale" to scale both width and height of an element but at different sizes starting with the x value.
+
+c. translate
+-> The translate value works a bit like that of the relative positioning, pushing and pulling element in different directions.
+without interrupting the normal flow of a document.
+-> translate-X ; will change the position of an element on the horizontal axis.
+-> translate-Y ; will change the position of an elemnt on the vertical axis.
+-> As with scale, use both the x and y axis values at once on the translate value.
+-> Most commonly % and px are used.
+-> Positive values will push element to the right of it's default position while negative value will push element to the left of its default position.
+
+d. Skew
+-> The skew property is used to distort elements on the horizontal axis, vertical axis or both.
+-> Syntax is very similar to that of "scale"and "translate" values. i.e. skewX, skewY and skew
+-> NOTE; The only measurement unit accepted here is measured in units of "degree" thus length measurements such as pixels or percentages do not apply here.
+
+Combining the Transforms
+-> It is common to combine multiple transforms to be used at once, rotating and scaling the size of an element at the same time.
+-> In this case, multiple transforms can be combined together one after the other without commas.
+-> Using multiple transform properties will not work as each declaration will overwrite the one above it.
+
+-> Behind every transform, there is also a matrix explicitely defining the behaviour of the transform.
+-> Using the rotate, scale, transition and skew values to provide an easy way to establish this matrix.
+
+Transform Origin
+-> The default transform origin is usually the dead center of an element, both 50% horizontally and 50% vertically.
+-> To change this default origin position, the transform origin property may be used.
+->The "transform-origin" property usually accepts one or two values.
+-> When only one value is specified, that value is used for both horizontal and vertical axes.
+-> If two values are specified, then the first is used for horizontal axes while the second is used for vertical axes.
+-> The values are treated like that of a background image position, using either a length or a keyword value.
+-> Thus "0, 0" is same as "top left" and "100%, 100%" is the same value as the "bottom right".
+-> More specific values can also be set e.g. "20px 50px" which would set the origin to "20px" across and "50px" down the element.
+
+NOTE;
+Notably, the transform-origin property does run into some issues when also using the translate transform value. Since both of them are attempting to position the element, their values can collide. Use the two of these with caution, always checking to make sure the desired outcome is achieved.
+
+Perspective
+-> In order for 3D transform to work, the elements need "perspective" from which to transform.
+-> The perspective for each element can be thought of as a "varnishing point" similar to which can be seen in 3D drawings.
+
+-> The perspective of an element can be set in 2 different ways;
+a. Using the "perspective" value within the "transform" property on individual elements.
+b. Using perspective property on the parent element residing over child elements being transformed.
+
+=> Using the perspective value within the transform property works great for transforming one element from a single, unique perspective.
+=> When you want to transform a group of elements all with the same perspective, or vanishing point, apply the perspective property to their parent element.
+
+Perspective Depth Value
+-> Two possible values; none or a length measurement.
+-> The "none" value turns off any perspective, while the "length" value will set the depth of the perspective.
+-> The higher the value, the further away the perspective appears thus creating a fairly low intensity perspective and a small 3D change.
+-> The lower the value, the closer the perspective appears thus creating a high intensity perspective and a large dimensional change.
+
+Perspective Origin
+-> As with setting a transform-origin, you can also set a perspective-origin.
+-> The same values used for the "transform-origin" property may also be used with the "perspective-origin" property and maintain the same relationship to the element.
+
+-> However  origin of a transform determines the coordinates used to calculate the change of a transform, while the origin of a perspective identifies the coordinates of the vanishing point of a transform.
+
+3D Transforms
+-> Using 3D transforms, we can change elements on the "z-axis" thus giving us more control of depth as well as length and width.
+
+a. 3D rotate
+-> With 3D transforms, we can rotate an element around any axes.
+-> Possible values;
+* rotateX -> allows you to rotate an element around the x-axis as if it was being bent in half-horizontally.
+* rotateY -> allows you to rotate an element around the y-axis as if it was being bent in half vertically.
+* z-axis -> allows an element to be rotated around the z-axis.
+
+b. 3D Scale
+-> By using the scaleZ three-dimensional transform elements may be scaled on the z axis. 
+-> This isn’t extremely exciting when no other three-dimensional transforms are in place, as there is nothing in particular to scale.
+
+c. 3D Translate
+-> Elements may also be translated on the z-axis using the translateZ value.
+-> A negative value here will push an element further away on the z-axis resulting in a smaller image while 
+a positive value will pull an element closer on the z axis resulting in a larger image.
+-> While this may appear to be very similar to that of the two-dimensional transform scale value, it is actually quite different. The transform is taking place on the z axis, not the x or y axes.
+-> When working with three-dimensional transforms, being able to move an element on the z axis does have great benefits, like when building the cube below for example.
+
+3D Skew does not exist
+
+Shorthand 3D Transforms
+=> As with combining two-dimensional transforms, there are also properties to write out shorthand three-dimensional transforms. These properties include rotate3d, scale3d, transition3d, and matrix3d.
+
+Transform Style
+=> On occasion, 3D transforms will be applied on an element that is nested within a parent element that is also being transformed.
+-> In this event, the nested, transformed elements will not appear in their own 3D space.
+-> "transform-style" property is used to transform nested elements in their own 3D plane with the "preserve-3d" value.
+-> The transform-style property needs to be placed on the parent element, above any nested transforms. The preserve-3d value allows the transformed children elements to appear in their own three-dimensional plane while the flat value forces the transformed children elements to lie flat on the two-dimensional plane
+
+Backface Visisbility
+-> When working with 3D transforms, elements will occassionally be transformed in a way that causes them to face away from the screen.
+-> This may be caused by setting the "rotateY(180deg)" value for example.
+->  By default these elements are shown from the back. So if you prefer not to see these elements at all, set the backface-visibility property to hidden, and you will hide the element whenever it is facing away from the screen.
+->The other value to backface-visibility is visible which is the default value, always displaying an element, no matter which direction it faces.
+-> The backface-visibility property takes even more significance when using
+

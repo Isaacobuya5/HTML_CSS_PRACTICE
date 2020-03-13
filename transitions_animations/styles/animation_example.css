@@ -1,0 +1,57 @@
+/** setting up animation with name "slide" **/
+@keyframes slide {
+    0% {
+        left: 0;
+        top: 0;
+    }
+    50% {
+        left: 244px;
+        top: 100px;
+    }
+    100% {
+        left: 488px;
+        top: 0;
+    }
+}
+
+.stage {
+  background: #eaeaed;
+  border-radius: 6px;
+  height: 150px;
+  position: relative;
+  min-width: 538px;
+}
+
+.ball {
+  background: #2db34a;
+  border-radius: 50%;
+  height: 50px;
+  position: absolute;
+  width: 50px;
+}
+
+.stage:hover .ball {
+    /* animation: slide 2s linear; */
+    animation-name: slide;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+    animation-delay: .5s;
+    /* animation-iteration-count: 5; */
+    /* animation-iteration-count: infinite; */
+    /* animation-direction: alternate; */
+    /* animation-fill-mode: forwards; */
+    /* animation-fill-mode: backwards; */
+    animation-fill-mode: none;
+    /***
+    animation-name: slide;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-delay: .5s;
+    ***/
+}
+
+.stage:active .ball {
+    animation-play-state: paused;
+}
+
+
